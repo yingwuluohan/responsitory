@@ -24,7 +24,9 @@ public class TestRedisOperaterServiceImpl extends AbstractBaseRedisDao<String, U
                 RedisSerializer<String> serializer = getRedisSerializer();
                 byte[] key  = serializer.serialize(user.getCityName());
                 byte[] name = serializer.serialize(user.getUserName());
-                boolean result = connection.setNX(key, name);
+                boolean result = true;//connection.setNX(key, name);
+                connection.expire( key ,1000 * 60 * 2 );
+                connection.setEx( key ,1000 * 60 * 2 , name );
                 return result;
             }
         });

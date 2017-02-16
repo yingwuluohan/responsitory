@@ -1,7 +1,6 @@
 package com.common.utils.quartz;
 /** 
-* @author  dfn  : 
-* @date 创建时间：2016年1月7日 下午3:09:04 
+* @date 创建时间：2016年1月7日 下午3:09:04
 * @version 1.0 
 * @parameter   
 * @return  

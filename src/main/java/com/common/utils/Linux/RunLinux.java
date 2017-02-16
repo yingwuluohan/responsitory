@@ -1,7 +1,7 @@
 package com.common.utils.Linux;
 
 /**
- * Created by fn on 2017/2/10.
+ * Created by   on 2017/2/10.
  */
 public class RunLinux {
 

@@ -7,7 +7,7 @@ import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer
 import org.springframework.data.redis.serializer.RedisSerializer;
 
 /**
- * Created by fn on 2017/2/14.
+ * Created by   on 2017/2/14.
  */
 public abstract class AbstractBaseRedisDao<K, V> {
 

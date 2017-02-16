@@ -11,8 +11,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 /**
-* @author  dfn  : 
-* @date 创建时间：2016年1月6日 下午4:08:06 
+* @date 创建时间：2016年1月6日 下午4:08:06
 * @version 1.0 
 * @parameter   
 * @return  
