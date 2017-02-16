@@ -1,0 +1,9 @@
+# 本地连接多个git服务器的配置，.shh目录下
+Host git.koolearn-inc.com
+    HostName git.koolearn-inc.com
+    IdentityFile ~/.ssh/id_rsa
+# github
+Host github.com
+    HostName github.com
+    IdentityFile ~/.ssh/dfn_id_rsa
+ 
