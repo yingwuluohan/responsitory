@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<!-- Property myzion.root is defined in the web.xml in the context param
+	"webAppRootKey" -->
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender name="myConsole" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] (%c:%L) - %m%n" />
+        </layout>
+        <!--过滤器设置输出的级别  log4j of service from svn -->
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMin" value="debug" />
+            <param name="levelMax" value="error" />
+            <param name="AcceptOnMatch" value="true" />
+        </filter>
+    </appender>
+    <appender name="stdout" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="logs/stdout.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="50MB" />
+        <param name="MaxBackupIndex" value="10" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] (%c:%L) - %m%n" />
+        </layout>
+    </appender>
+    <appender name="stderr" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="logs/stderr.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="50MB" />
+        <param name="MaxBackupIndex" value="3" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] (%c:%L) - %m%n" />
+        </layout>
+    </appender>
+
+    <appender name="sqllog" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="logs/sql.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="50MB" />
+        <param name="MaxBackupIndex" value="3" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] (%c:%L) - %m%n" />
+        </layout>
+    </appender>
+    <appender name="exam" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="logs/exam.log" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="50MB" />
+        <param name="MaxBackupIndex" value="10" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] (%c:%L) - %m%n" />
+        </layout>
+    </appender>
+
+    <logger name="org.springframework" additivity="false">
+        <level value="info" />
+        <appender-ref ref="stderr" />
+    </logger>
+    <root>
+        <priority value="info" />
+        <appender-ref ref="stderr" />
+    </root>
+</log4j:configuration>
