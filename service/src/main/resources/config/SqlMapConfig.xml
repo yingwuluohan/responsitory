@@ -15,7 +15,7 @@
     </settings>
 
     <mappers>
-        <mapper resource="classpath:com.fang.dao.DemoDao.xml"/>
+        <mapper resource="classpath:com.fang.global.dao.mapper"/>
     </mappers>
 
 

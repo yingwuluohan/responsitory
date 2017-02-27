@@ -24,7 +24,7 @@ public class TestController {
     @RequestMapping( value="/go" ,method= RequestMethod.GET )
     public String goTest(){
         String result = demoService.findUserName();
-        return "/test";
+        return "test";
     }
 
     /*
