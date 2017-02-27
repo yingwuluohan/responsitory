@@ -7,5 +7,19 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="provider" />
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" protocol="zookeeper" />
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" port="20880" />
+    <!-- 具体的实现bean -->
+    <bean id="demoService" class="com.fang.global.service.impl.DemoServiceImpl" />
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.fang.service.DemoService"  ref="demoService" protocol="dubbo"/>
 
+    <!-- dubbo简易监控中心
+    <dubbo:monitor protocol="registry"></dubbo:monitor>
+    <context:component-scan base-package="com.fang.global.service.impl"></context:component-scan>
+    -->
 </beans>

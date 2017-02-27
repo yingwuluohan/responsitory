@@ -18,8 +18,8 @@ public class TestController {
 
     @Autowired
     private DemoService demoService;
-    @Autowired
-    private TestRedisOperaterService testRedisOperaterService;
+
+
 
     @RequestMapping( value="/go" ,method= RequestMethod.GET )
     public String goTest(){
@@ -27,6 +27,7 @@ public class TestController {
         return "/test";
     }
 
+    /*
     @RequestMapping( value="/redis" ,method= RequestMethod.GET )
     public String redisTest(){
         User user = new User();
@@ -51,5 +52,6 @@ public class TestController {
         testRedisOperaterService.deleteRedis( key );
         return "/test";
     }
+    */
 
 }

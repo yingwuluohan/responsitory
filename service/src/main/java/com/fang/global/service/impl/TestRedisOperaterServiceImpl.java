@@ -14,7 +14,7 @@ import java.io.UnsupportedEncodingException;
 /**
  * Created by fn on 2017/2/14.
  */
-@Service
+@Service("testRedisOperaterService")
 public class TestRedisOperaterServiceImpl extends AbstractBaseRedisDao<String, User> implements TestRedisOperaterService {
 
     public boolean add(final User user) {

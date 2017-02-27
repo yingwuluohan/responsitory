@@ -9,6 +9,10 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: com.alibaba:dubbo:2.5.3" />
           <element id="library" level="project" name="Maven: org.javassist:javassist:3.15.0-GA" />
+          <element id="library" level="project" name="Maven: org.jboss.netty:netty:3.2.9.Final" />
+          <element id="library" level="project" name="Maven: com.github.sgroschupf:zkclient:0.1" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.14" />
+          <element id="library" level="project" name="Maven: org.mortbay.jetty:servlet-api-2.5:6.1.14" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.0.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.0.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.0.7.RELEASE" />
@@ -38,7 +42,6 @@
           <element id="library" level="project" name="Maven: org.apache.zookeeper:zookeeper:3.4.6" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.1" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.6.1" />
-          <element id="library" level="project" name="Maven: log4j:log4j:1.2.16" />
           <element id="library" level="project" name="Maven: jline:jline:0.9.94" />
           <element id="library" level="project" name="Maven: io.netty:netty:3.7.0.Final" />
           <element id="library" level="project" name="Maven: org.quartz-scheduler:quartz:2.2.2" />
@@ -55,7 +58,6 @@
           <element id="archive" name="common-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="common" />
           </element>
-          <element id="library" level="project" name="Maven: org.mortbay.jetty:servlet-api-2.5:6.1.14" />
           <element id="library" level="project" name="Maven: org.apache.pdfbox:pdfbox-app:1.8.11" />
           <element id="library" level="project" name="Maven: com.belerweb:pinyin4j:2.5.0" />
         </element>

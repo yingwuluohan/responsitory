@@ -9,7 +9,8 @@
 	http://www.springframework.org/schema/mvc
 	http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 	
-	<context:component-scan base-package="com.fang.**.controller" />
+	<!--<context:component-scan base-package="com.fang.**.controller" />-->
+	<context:component-scan base-package="com.fang.controller" />
 	<!-- ②：启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"

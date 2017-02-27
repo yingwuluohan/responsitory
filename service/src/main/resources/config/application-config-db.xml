@@ -21,7 +21,7 @@
     <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="configLocation" value="" />
+
         <!-- 自动扫描mapping.xml文件 -->
         <property name="mapperLocations" value="classpath:com/fang/global/dao/mapper/*.xml"/>
     </bean>
@@ -31,8 +31,11 @@
     <!-- mybatis 配置文件和Mapper 的位置 -->
     <bean name="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.fang.global.dao" />
-
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
+
+
+
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
     <bean id="transactionManager"  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
