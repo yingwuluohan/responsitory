@@ -15,7 +15,6 @@ import java.util.Properties;
 /**
  * 系统配置参数类
  * 
- * @author zhanghua 2012-10-23 Copyright by koolearn.com, 2012
  */
 public class PropertiesConfigUtils {
 

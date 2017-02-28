@@ -6,7 +6,6 @@ import org.springframework.core.convert.support.GenericConversionService;
 
 /**
  * springmvc参数转换过滤xss
- * @author zhanghua
  *
  */
 public class AntiXSSConversionService extends GenericConversionService {

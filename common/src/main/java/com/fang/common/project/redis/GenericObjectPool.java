@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by fn on 2017/2/27.
+ * Created by on 2017/2/27.
  */
 public class GenericObjectPool extends org.apache.commons.pool.impl.GenericObjectPool implements ObjectPool, Initialisable {
     private boolean isValid;

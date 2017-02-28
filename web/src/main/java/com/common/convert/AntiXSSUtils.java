@@ -9,15 +9,7 @@ import java.util.regex.Pattern;
 // TODO: Auto-generated Javadoc
 
 /**
- * ClassName：Class AntiXSSUtils<br>
- * Description： 字符串过滤工具类        .<br>
- * <p>company：新东方在线<br>
- * Copyright：Copyright © 2010 koolearn.com All Rights Reserved<br>
- *
- * @author 新东方在线技术部
- * @version V1.0
- * @Date 2010 2010-4-23 10:26:27
- * @since JDK1.5 or higher
+
  */
 public class AntiXSSUtils {
 

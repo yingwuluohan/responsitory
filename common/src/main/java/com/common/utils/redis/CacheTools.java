@@ -4,7 +4,7 @@ import com.common.utils.spring.SpringContextUtils;
 import com.fang.common.project.KooJedisClient;
 
 /**
- * Created by fn on 2017/2/28.
+ * Created by  on 2017/2/28.
  */
 public class CacheTools {
     private CacheTools(){}

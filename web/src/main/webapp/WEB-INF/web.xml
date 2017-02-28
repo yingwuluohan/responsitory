@@ -44,8 +44,9 @@
         </init-param>
     </filter>
 
+    <!--
     <filter>
-        <filter-name>loginFilter</filter-name>
+        <filter-name>SSOLoginFilter</filter-name>
         <filter-class>com.common.util.LoginFilter</filter-class>
         <init-param>
             <param-name>sso.anonymous</param-name>
@@ -58,10 +59,10 @@
         </init-param>
     </filter>
     <filter-mapping>
-        <filter-name>loginFilter</filter-name>
+        <filter-name>SSOLoginFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
+ -->
     <filter-mapping>
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>

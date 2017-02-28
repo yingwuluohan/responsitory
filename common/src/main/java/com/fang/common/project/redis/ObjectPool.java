@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by fn on 2017/2/27.
+ * Created by  on 2017/2/27.
  */
 public interface ObjectPool extends org.apache.commons.pool.ObjectPool {
     Logger logger = Logger.getLogger(ObjectPool.class);

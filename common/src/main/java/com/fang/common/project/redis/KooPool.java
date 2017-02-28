@@ -3,7 +3,6 @@ package com.fang.common.project.redis;
 import redis.clients.util.Pool;
 
 /**
- * Created by yaopeng on 2015/11/3.
  */
 public class KooPool {
     private Pool pool;
