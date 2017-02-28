@@ -2,6 +2,8 @@ package com.fang.global.service.impl;
 
 import com.common.utils.modle.User;
 import com.common.utils.redis.AbstractBaseRedisDao;
+import com.common.utils.spring.SpringContextUtils;
+import com.fang.common.project.KooJedisClient;
 import com.fang.service.TestRedisOperaterService;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
@@ -33,6 +35,10 @@ public class TestRedisOperaterServiceImpl extends AbstractBaseRedisDao<String, U
     }
 
     public boolean add(final User user) {
+        KooJedisClient client = SpringContextUtils.getBean("redisClient", KooJedisClient.class);
+        client.set( user.getUserName() ,user );
+
+        /*
         boolean result = redisTemplate.execute(new RedisCallback<Boolean>() {
             public Boolean doInRedis(RedisConnection connection)
                     throws DataAccessException {
@@ -46,6 +52,8 @@ public class TestRedisOperaterServiceImpl extends AbstractBaseRedisDao<String, U
             }
         });
         return result;
+        */
+        return true;
     }
 
     public String deserializerValue( final String key){

@@ -32,8 +32,8 @@ public class TestController {
     @RequestMapping( value="/redis" ,method= RequestMethod.GET )
     public String redisTest(){
         User user = new User();
-        user.setUserName( "test22exprie" );
-        user.setCityName( "beijing222exprie");
+        user.setUserName( "testHightVersion2" );
+        user.setCityName( "beijing22test");
         testRedisOperaterService.add( user );
         return "/test";
     }

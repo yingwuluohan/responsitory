@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.commons.pool.impl.GenericObjectPool;
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.Protocol;
@@ -31,7 +32,9 @@ public class Router {
      */
     private List<RedisInstInfo> otherSlavesInfoList = new ArrayList<RedisInstInfo>();
     private String appRoom;
-    private JedisPoolConfig poolConfig;
+    private GenericObjectPool.Config poolConfig;
+
+    private GenericObjectPoolConfig poolConfig2;
     private int timeout;
     private String password;
     private int database;
@@ -42,20 +45,20 @@ public class Router {
 
     private Router(){}
 
-    public void init(String addressStr, JedisPoolConfig poolConfig, int timeout, String password, int database){
+    public void init(String addressStr, GenericObjectPoolConfig poolConfig, int timeout, String password, int database){
         this.appRoom = System.getProperty(Constants.APPLOCATION, Constants.NONE);
         parseAddress(addressStr);
-        this.poolConfig = poolConfig;
+        this.poolConfig2 = poolConfig;
         this.timeout = timeout;
         this.password = password;
         this.database = database;
 
-        addDataSource(this.masterInfo.getAddressAndPort(), this.poolConfig, this.timeout, this.password, this.database);
+        addDataSource(this.masterInfo.getAddressAndPort(), this.poolConfig2, this.timeout, this.password, this.database);
         for(RedisInstInfo r : localSlavesInfoList){
-            addDataSource(r.getAddressAndPort(), this.poolConfig, this.timeout, this.password, this.database);
+            addDataSource(r.getAddressAndPort(), this.poolConfig2, this.timeout, this.password, this.database);
         }
         for(RedisInstInfo r : otherSlavesInfoList){
-            addDataSource(r.getAddressAndPort(), this.poolConfig, this.timeout, this.password, this.database);
+            addDataSource(r.getAddressAndPort(), this.poolConfig2, this.timeout, this.password, this.database);
         }
     }
 
@@ -68,14 +71,16 @@ public class Router {
         }
     }
 
-    public void addDataSource(String address, JedisPoolConfig poolConfig, int timeout, String password, int database){
+    public void addDataSource(String address, GenericObjectPoolConfig poolConfig, int timeout, String password, int database){
         addDataSourceForUser(address, poolConfig, timeout, password, database);
         addDataSourceForHealthCheck(address, password, database);
     }
 
-    private void addDataSourceForUser(String address, JedisPoolConfig poolConfig, int timeout, String password, int database){
+    private void addDataSourceForUser(String address, GenericObjectPoolConfig poolConfig, int timeout, String password, int database){
         String[] addressArr = address.split(":");
-        Pool jedisPool = null;//new JedisPool(poolConfig, addressArr[0], Integer.parseInt(addressArr[1]),timeout,password,database);
+        GenericObjectPoolConfig poolConfig2 = null;
+
+        Pool jedisPool = new JedisPool( poolConfig, addressArr[0], Integer.parseInt(addressArr[1]),timeout,password,database);
         KooPool pool = new KooPool();
         pool.setPool(jedisPool);
         pool.setStateOk();

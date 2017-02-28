@@ -7,6 +7,7 @@ import com.dianping.cat.message.Transaction;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import redis.clients.jedis.*;
 import redis.clients.jedis.BinaryClient.LIST_POSITION;
 
@@ -29,7 +30,9 @@ public abstract class AbstractKooJedisClient {
 
 	protected String address;
 
-	protected JedisPoolConfig config;
+	protected GenericObjectPoolConfig config;
+
+
 
 	protected RedisSerializer<Object> serializer = new JdkSerializationRedisSerializer();
 
@@ -88,11 +91,11 @@ public abstract class AbstractKooJedisClient {
 		this.address = address;
 	}
 
-	public JedisPoolConfig getConfig() {
+	public GenericObjectPoolConfig getConfig() {
 		return config;
 	}
 
-	public void setConfig(JedisPoolConfig config) {
+	public void setConfig(GenericObjectPoolConfig config) {
 		this.config = config;
 	}
 

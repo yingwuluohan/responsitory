@@ -36,6 +36,25 @@
         <!-- <property name="password" value="${redis.password}" /> -->
         <property name="timeout" value="${redis.timeout}"></property>
     </bean>
+
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxIdle" value="500" />
+        <property name="testOnBorrow" value="false" />
+    </bean>
+    <bean id="jedisPoolConfig2" class="org.apache.commons.pool2.impl.GenericObjectPoolConfig" >
+    </bean>
+
+    <bean id="serializer" class="com.fang.common.project.redis.HessianRedisSerializer" />
+    <bean id="redisClient" class="com.fang.common.project.KooJedisClient" init-method="init" destroy-method="destroy">
+        <property name="prefix" value="${redisKey}"></property>
+        <property name="config" ref="jedisPoolConfig2"></property>
+        <property name="serializer" ref="serializer"></property>
+        <property name="address" value="${redisAddress}"></property>
+        <property name="timeOut" value="1000000"></property>
+    </bean>
+    <bean  id="springContextUtils" class="com.common.utils.spring.SpringContextUtils" depends-on="redisClient"></bean>
+
+    <!-- 另一种redis的模板配置-->
     <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
         <property name="connectionFactory" ref="connectionFactory" />
         <property name="keySerializer">
@@ -45,10 +64,11 @@
             <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
         </property>
     </bean>
-    <!-- 配置缓存 -->
+
     <bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
         <constructor-arg ref="redisTemplate" />
     </bean>
+
     <!-- ******************** redis缓存   **********************-->
 
 
