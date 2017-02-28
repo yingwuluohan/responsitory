@@ -8,5 +8,5 @@ package com.fang.service;
 public interface DemoService {
 
     String findUserName(  );
-
+    String updateUserName(String userId );
 }

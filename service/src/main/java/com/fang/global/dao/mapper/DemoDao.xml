@@ -9,6 +9,10 @@
     </select>
 
 
+    <update id="updateUserName" parameterType="java.util.HashMap">
+      update user set user_name =#{userName} where id =#{userId}
+
+    </update>
 
 
 

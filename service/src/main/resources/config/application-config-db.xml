@@ -51,7 +51,10 @@
             <tx:method name="add*" propagation="REQUIRED"/>
         </tx:attributes>
     </tx:advice>
-
+    <aop:config  proxy-target-class="true">
+        <aop:pointcut id="allServicesMethod" expression="execution(* com.fang.global.service.*.*(..))" />
+        <aop:advisor pointcut-ref="allServicesMethod" advice-ref="txAdvice"  />
+    </aop:config>
 
 
 

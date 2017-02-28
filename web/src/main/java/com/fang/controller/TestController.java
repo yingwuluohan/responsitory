@@ -27,7 +27,11 @@ public class TestController {
         String result = demoService.findUserName();
         return "test";
     }
-
+    @RequestMapping( value="/update" ,method= RequestMethod.GET )
+    public String updateDb(){
+        String result = demoService.updateUserName( "108" );
+        return "test";
+    }
 
     @RequestMapping( value="/redis" ,method= RequestMethod.GET )
     public String redisTest(){
