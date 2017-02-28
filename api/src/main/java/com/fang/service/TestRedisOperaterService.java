@@ -8,6 +8,7 @@ import com.common.utils.modle.User;
  */
 public interface TestRedisOperaterService {
 
+    public <T> T addForlong( final String key , Class<T> classes );
     boolean add(final User user);
 
     String deserializerValue(String key);

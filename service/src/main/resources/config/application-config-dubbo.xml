@@ -13,6 +13,8 @@
     <!-- 声明需要暴露的服务接口 -->
     <dubbo:service interface="com.fang.service.DemoService"  ref="demoService" protocol="dubbo"/>
 
+    <bean id="testRedisOperaterService" class="com.fang.global.service.impl.TestRedisOperaterServiceImpl" />
+    <dubbo:service interface="com.fang.service.TestRedisOperaterService"  ref="testRedisOperaterService" protocol="dubbo"/>
 
     <!-- dubbo简易监控中心
     <dubbo:monitor protocol="registry"></dubbo:monitor>

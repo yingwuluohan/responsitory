@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<!-- Property myzion.root is defined in the web.xml in the context param
+	"webAppRootKey" -->
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender name="myConsole" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{dd HH:mm:ss,SSS\} %-5p] [%t] (%13F:%L) - %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMin" value="debug" />
+            <param name="levelMax" value="error" />
+            <param name="AcceptOnMatch" value="true" />
+        </filter>
+    </appender>
+    <appender name="catalina" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${catalina.base}/logs/catalina.out" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="50MB" />
+        <param name="MaxBackupIndex" value="10" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{dd HH:mm:ss,SSS\} %-5p] [%t] (%13F:%L) - %m%n" />
+        </layout>
+    </appender>
+    <appender name="catalinaError" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${catalina.base}/logs/catalinaError.out" />
+        <param name="Append" value="true" />
+        <param name="MaxFileSize" value="50MB" />
+        <param name="MaxBackupIndex" value="3" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{dd HH:mm:ss,SSS\} %-5p] [%t] (%13F:%L) - %m%n" />
+        </layout>
+    </appender>
+    <!-- 异常日志文件发送邮件 -->
+    <appender name="errorLog" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${catalina.base}/logs/error.out" />
+        <param name="Append" value="true" />
+        <param name="Encoding" value="UTF-8" />
+        <param name="DatePattern" value="'_'yyyyMMdd'.log'" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.sss} [%-5p]  %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMax" value="ERROR" />
+            <param name="LevelMin" value="ERROR" />
+        </filter>
+    </appender>
+    <!-- 发送日志文件到邮件 -->
+    <appender name="eMail" class="org.apache.log4j.net.SMTPAppender">
+        <param name="threshold" value="ERROR"/>
+        <param name="from" value="monitor@126.com"/>
+        <param name="SMTPHost" value="pubmail.koolearn.com"/>
+        <param name="subject" value="异常日志"/>
+        <param name="to" value="test@126.com"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS}%m" />
+        </layout>
+    </appender>
+
+    <logger name="org.springframework" additivity="false">
+        <level value="error" />
+        <appender-ref ref="catalinaError" />
+    </logger>
+    <logger name="com.fang.controller" additivity="true">
+        <level value="info" />
+        <appender-ref ref="catalina" />
+    </logger>
+    <root>
+        <priority value="info" />
+        <appender-ref ref="catalinaError" />
+     <!--   <appender-ref ref="myConsole" /> -->
+    </root>
+</log4j:configuration>

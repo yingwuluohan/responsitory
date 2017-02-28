@@ -1,11 +1,12 @@
 package com.common.utils.modle;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by on 2017/2/10.
  */
-public class User {
+public class User implements Serializable{
 
     private Integer id;
     /**真实姓名*/
@@ -31,6 +32,15 @@ public class User {
     private Integer provinceId;
     /** ( 老师 )  省/直辖市name */
     private String provinceName;
+    private String sessionId;
+
+    public String getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
 
     @Override
     public boolean equals(Object o) {

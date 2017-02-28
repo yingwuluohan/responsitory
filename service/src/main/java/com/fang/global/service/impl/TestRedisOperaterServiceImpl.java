@@ -17,6 +17,21 @@ import java.io.UnsupportedEncodingException;
 @Service("testRedisOperaterService")
 public class TestRedisOperaterServiceImpl extends AbstractBaseRedisDao<String, User> implements TestRedisOperaterService {
 
+    public <T> T addForlong( final String key , Class<T> classes ){
+        /*
+        T result = redisTemplate.execute(new RedisCallback<Boolean>() {
+            public Class<T> doInRedis(RedisConnection connection) throws DataAccessException {
+                RedisSerializer<String> serializer = getRedisSerializer();
+                byte[] key1  = serializer.serialize( key );
+                byte[] value = connection.get( key1 );
+                T result = (T) serializer.deserialize(value);
+                return (Class<T>) result;
+            }
+        });
+        */
+        return (T) classes;
+    }
+
     public boolean add(final User user) {
         boolean result = redisTemplate.execute(new RedisCallback<Boolean>() {
             public Boolean doInRedis(RedisConnection connection)

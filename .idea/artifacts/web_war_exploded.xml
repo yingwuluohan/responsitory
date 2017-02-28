@@ -9,6 +9,7 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: com.alibaba:dubbo:2.5.3" />
           <element id="library" level="project" name="Maven: org.javassist:javassist:3.15.0-GA" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.5" />
           <element id="library" level="project" name="Maven: org.jboss.netty:netty:3.2.9.Final" />
           <element id="library" level="project" name="Maven: com.github.sgroschupf:zkclient:0.1" />
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.14" />
@@ -30,7 +31,6 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.0.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.0.7.RELEASE" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
-          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.5" />
           <element id="library" level="project" name="Maven: org.apache.poi:poi:3.11" />
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.9" />
           <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml:3.9" />
@@ -58,8 +58,20 @@
           <element id="archive" name="common-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="common" />
           </element>
+          <element id="library" level="project" name="Maven: com.dianping.cat:cat-client:1.3.6" />
+          <element id="library" level="project" name="Maven: org.unidal.framework:foundation-service:2.3.0" />
+          <element id="library" level="project" name="Maven: org.codehaus.plexus:plexus-container-default:1.6" />
+          <element id="library" level="project" name="Maven: org.codehaus.plexus:plexus-classworlds:2.5.1" />
+          <element id="library" level="project" name="Maven: org.apache.xbean:xbean-reflect:3.7" />
+          <element id="library" level="project" name="Maven: org.codehaus.plexus:plexus-utils:3.0.8" />
+          <element id="library" level="project" name="Maven: io.netty:netty-all:4.0.24.Final" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:1.6" />
           <element id="library" level="project" name="Maven: org.apache.pdfbox:pdfbox-app:1.8.11" />
           <element id="library" level="project" name="Maven: com.belerweb:pinyin4j:2.5.0" />
+          <element id="library" level="project" name="Maven: org.apache.commons.pool:commons-pool:1.3-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: org.apache.oro:jakarta-oro:2.0.8-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:4.3.0.Final" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.1.0.CR2" />
         </element>
       </element>
       <element id="directory" name="META-INF">
