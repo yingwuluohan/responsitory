@@ -47,8 +47,10 @@
         <jetty_version>6.1.26</jetty_version>
         <netty_version>3.2.5.Final</netty_version>
         <logback_version>1.0.6</logback_version>
-
-
+        <spring.data.mongodb>1.9.2.RELEASE</spring.data.mongodb>
+        <mongodb.java.driver>3.2.2</mongodb.java.driver>
+        <fastjson.version>1.2.3</fastjson.version>
+        <jackson.version>2.7.0</jackson.version>
     </properties>
     <!-- 不同的打包环境 -->
     <profiles>
@@ -90,6 +92,40 @@
     <dependencies>
 
         <!-- ********************************************************************-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>${mongodb.java.driver}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+            <version>${spring.data.mongodb}</version>
+        </dependency>
         <dependency>
             <groupId>org.mortbay.jetty</groupId>
             <artifactId>jetty</artifactId>

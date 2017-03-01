@@ -5,10 +5,13 @@ import com.fang.service.CacheToolsService;
 import com.modle.User;
 import com.fang.service.DemoService;
 import com.fang.service.TestRedisOperaterService;
+import com.modle.UserInfo;
 import com.modle.page.Page;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -36,6 +39,23 @@ public class TestController {
         String result = demoService.findUserName();
         return "test";
     }
+    @RequestMapping(value = "/atrribuilt"  , method = RequestMethod.GET )
+    public String atrribuilt(@ModelAttribute UserInfo userInfo ){
+
+        System.out.println( "获取属性:" + userInfo );
+        return "";
+    }
+    @RequestMapping("/manage_{examId}_{studentId}")
+    public String start(@PathVariable("examId") int examId,
+                        @PathVariable("studentId") int studentId,
+                        HttpServletRequest request,
+                        HttpServletResponse response ) throws Exception
+    {
+        //先判断examId 是否存在
+        System.out.println( "获取参数:" + examId + ", " + studentId );
+        return "/index";
+    }
+
     @RequestMapping( value="/update" ,method= RequestMethod.GET )
     public String updateDb(){
         String result = demoService.updateUserName( "108" );
