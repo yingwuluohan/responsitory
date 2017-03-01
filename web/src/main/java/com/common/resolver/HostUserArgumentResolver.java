@@ -1,11 +1,9 @@
 package com.common.resolver;
 
-import com.common.utils.modle.User;
+import com.modle.User;
 
 import com.fang.common.project.CommonConstant;
 import com.fang.common.project.CookieUtil;
-import com.fang.service.TestRedisOperaterService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebArgumentResolver;
 import org.springframework.web.context.request.NativeWebRequest;

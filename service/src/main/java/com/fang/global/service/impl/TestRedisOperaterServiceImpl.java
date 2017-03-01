@@ -1,6 +1,6 @@
 package com.fang.global.service.impl;
 
-import com.common.utils.modle.User;
+import com.modle.User;
 import com.common.utils.redis.AbstractBaseRedisDao;
 import com.common.utils.spring.SpringContextUtils;
 import com.fang.common.project.KooJedisClient;
@@ -8,7 +8,6 @@ import com.fang.service.TestRedisOperaterService;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
-import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.stereotype.Service;
 
 import java.io.UnsupportedEncodingException;
@@ -18,6 +17,8 @@ import java.io.UnsupportedEncodingException;
  */
 @Service("testRedisOperaterService")
 public class TestRedisOperaterServiceImpl extends AbstractBaseRedisDao<String, User> implements TestRedisOperaterService {
+
+
 
     public <T> T addForlong( final String key , Class<T> classes ){
         /*

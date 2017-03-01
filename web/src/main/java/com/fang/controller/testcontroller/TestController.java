@@ -1,13 +1,20 @@
-package com.fang.controller;
+package com.fang.controller.testcontroller;
 
 
-import com.common.utils.modle.User;
+import com.fang.service.CacheToolsService;
+import com.modle.User;
 import com.fang.service.DemoService;
 import com.fang.service.TestRedisOperaterService;
+import com.modle.page.Page;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * Created by fn on 2017/2/9.
@@ -20,10 +27,12 @@ public class TestController {
     private DemoService demoService;
     @Autowired
     private TestRedisOperaterService testRedisOperaterService;
+    @Autowired
+    private CacheToolsService cacheToolsService;
 
 
     @RequestMapping( value="/go" ,method= RequestMethod.GET )
-    public String goTest(){
+    public String goTest(HttpServletRequest request , HttpServletResponse response){
         String result = demoService.findUserName();
         return "test";
     }
@@ -33,12 +42,26 @@ public class TestController {
         return "test";
     }
 
+    @RequestMapping( value = "/pageFind" ,method = RequestMethod.GET )
+    public String pageFind(HttpServletRequest request , HttpServletResponse response ){
+        String pageNo = request.getParameter( "pageNo" );
+        if(StringUtils.isEmpty( pageNo )){
+            pageNo = "0";
+        }
+        Page page = new Page();
+        page.setPageNo( new Integer( pageNo ));
+        page.setPageSize( 10 );
+        List< User> list = demoService.findUserInfo( page );
+        return "test";
+    }
+
     @RequestMapping( value="/redis" ,method= RequestMethod.GET )
     public String redisTest(){
         User user = new User();
-        user.setUserName( "testHightFilder" );
-        user.setCityName( "beijing22test");
-        testRedisOperaterService.add( user );
+        user.setUserName( "testHightFilder111" );
+        user.setCityName( "beijing22tes111t");
+        cacheToolsService.addCacheForever("testHightFilder111" ,user );
+        //testRedisOperaterService.add( user );
         return "/test";
     }
 

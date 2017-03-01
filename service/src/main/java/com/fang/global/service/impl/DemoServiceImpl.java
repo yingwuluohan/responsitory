@@ -1,10 +1,9 @@
 package com.fang.global.service.impl;
 
-import com.common.utils.modle.User;
+import com.modle.User;
 import com.fang.global.dao.DemoDao;
 import com.fang.service.DemoService;
-import org.omg.CORBA.Object;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.modle.page.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,6 +35,14 @@ public class DemoServiceImpl implements DemoService {
         System.out.println( list );
         return null;
     }
+    public List< User > findUserInfo( Page page){
+        if( null != page){
+            page.setPageNo( page.getPageNo() * page.getPageSize() );
+        }
+        List< User > userList = demoDao.findUserInfo( page );
+        return userList;
+    }
+
     @Transactional
     public String updateUserName(String userId ){
         System.out.println( " 更新用户信息");

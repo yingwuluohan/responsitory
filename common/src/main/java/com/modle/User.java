@@ -1,4 +1,4 @@
-package com.common.utils.modle;
+package com.modle;
 
 import java.io.Serializable;
 import java.util.Date;

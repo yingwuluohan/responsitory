@@ -24,7 +24,7 @@ public class Optional1_8Jdk {
 		Optional<String> upperName = name.map((value) -> value.toUpperCase());
 		System.out.println(upperName.orElse("No value found")); 
 		List< String > list = new ArrayList<>();
-		list.add( "test" );
+		list.add( "testcontroller" );
 		
 	}
 	

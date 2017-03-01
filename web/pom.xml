@@ -336,7 +336,7 @@
                     <connectors>
                         <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
                             <port>8080</port>
-                            <host>cloud.global.com</host>
+                            <host>my.global.com</host>
                         </connector>
                     </connectors>
                     <contextPath>/</contextPath>

@@ -14,6 +14,7 @@
     <dubbo:registry address="zookeeper://127.0.0.1:2181" protocol="zookeeper"/>
     <dubbo:reference id="demoService"  interface="com.fang.service.DemoService"  />
     <dubbo:reference id="testRedisOperaterService"  interface="com.fang.service.TestRedisOperaterService"  />
+    <dubbo:reference id="cacheToolsService"  interface="com.fang.service.CacheToolsService"  />
 
     <!-- 远程服务调用重试次数，不包括第一次调用 -->
     <dubbo:consumer retries="0" timeout="@dubbo.timeout@" />

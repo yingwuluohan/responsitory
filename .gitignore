@@ -10,6 +10,7 @@ lib
 .project
 .mymetadata
 .log
+login.jsp
 data
 rebel.xml
 provider-datasource.xml

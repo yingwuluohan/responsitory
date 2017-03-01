@@ -1,6 +1,6 @@
 package com.fang.common.project.redis;
 
-import com.common.utils.modle.User;
+import com.modle.User;
 import com.common.utils.redis.AbstractBaseRedisDao;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;

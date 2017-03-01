@@ -16,6 +16,8 @@
     <bean id="testRedisOperaterService" class="com.fang.global.service.impl.TestRedisOperaterServiceImpl" />
     <dubbo:service interface="com.fang.service.TestRedisOperaterService"  ref="testRedisOperaterService" protocol="dubbo"/>
 
+    <bean id="cacheToolsService" class="com.fang.global.service.impl.utils.CacheToolsServiceImpl" />
+    <dubbo:service interface="com.fang.service.CacheToolsService" ref="cacheToolsService" protocol="dubbo"/>
     <!-- dubbo简易监控中心
     <dubbo:monitor protocol="registry"></dubbo:monitor>
     <context:component-scan base-package="com.fang.global.service.impl"></context:component-scan>

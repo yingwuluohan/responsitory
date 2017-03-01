@@ -8,6 +8,14 @@
         select user_name from user where id =123 or id = 124
     </select>
 
+    <select id="findUserInfo" parameterType="com.modle.page.Page" resultType="com.modle.User">
+          select id , mobile ,user_name  from user where <![CDATA[  create_time <= now() ]]>
+            <if test="pageSize != null and pageNo != null">
+                limit #{pageNo}, #{pageSize}
+            </if>
+
+    </select>
+
 
     <update id="updateUserName" parameterType="java.util.HashMap">
       update user set user_name =#{userName} where id =#{userId}

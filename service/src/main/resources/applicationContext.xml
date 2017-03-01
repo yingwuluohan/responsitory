@@ -19,7 +19,7 @@
 
 
     <!--扫描service-->
-    <context:component-scan base-package="com.fang.global.service.impl"/>
+    <context:component-scan base-package="com.fang.global.service.*"/>
     <context:component-scan base-package="com.fang.global.dao"/>
     <import resource="classpath*:/config/application-config-*.xml" />
 
@@ -39,17 +39,14 @@
         <property name="timeout" value="${redis.timeout}"></property>
     </bean>
 
-    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
-        <property name="maxIdle" value="500" />
-        <property name="testOnBorrow" value="false" />
-    </bean>
-    <bean id="jedisPoolConfig2" class="org.apache.commons.pool2.impl.GenericObjectPoolConfig" >
+
+    <bean id="jedisPoolConfig" class="org.apache.commons.pool2.impl.GenericObjectPoolConfig" >
     </bean>
 
     <bean id="serializer" class="com.fang.common.project.redis.HessianRedisSerializer" />
     <bean id="redisClient" class="com.fang.common.project.KooJedisClient" init-method="init" destroy-method="destroy">
         <property name="prefix" value="${redisKey}"></property>
-        <property name="config" ref="jedisPoolConfig2"></property>
+        <property name="config" ref="jedisPoolConfig"></property>
         <property name="serializer" ref="serializer"></property>
         <property name="address" value="${redisAddress}"></property>
         <property name="timeOut" value="1000000"></property>

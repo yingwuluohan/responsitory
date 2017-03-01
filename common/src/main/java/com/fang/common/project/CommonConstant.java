@@ -1,5 +1,7 @@
 package com.fang.common.project;
 
+import com.fang.common.project.redis.PropertiesConfigUtils;
+
 /**
  * Created by fn on 2017/2/27.
  */
@@ -47,7 +49,7 @@ public class CommonConstant {
 
 
 
-
+    public static final String HOSTS_SSO= PropertiesConfigUtils.getProperty("hosts.ffo");
 
 
 

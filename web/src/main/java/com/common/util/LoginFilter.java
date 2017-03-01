@@ -1,12 +1,10 @@
 package com.common.util;
 
 import com.common.utils.modle.ThirdDomainDTO;
-import com.common.utils.modle.User;
-import com.common.utils.redis.CacheTools;
+import com.modle.User;
 import com.common.utils.utils.CommonUtil;
 import com.common.utils.utils.StringAnalyUtils;
 import com.common.utils.utils.SystemGlobals;
-import com.common.utils.utils.WebUtil;
 import com.fang.common.project.CommonConstant;
 import com.fang.common.project.CookieUtil;
 import com.modle.Authorization;
@@ -667,7 +665,7 @@ public class LoginFilter extends HttpServlet implements Filter {
 	        	authId = authCookie.getValue();
 	        }
 
-	        CacheTools.addCache(authId, null);
+	       // CacheTools.addCache(authId,60 * 5, null);
 			request.getSession().setAttribute("AUTHORIZATION",null);
 			System.out.println("not find users");
 		}
