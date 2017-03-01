@@ -99,8 +99,7 @@
                 type:"jsonp"
             },
             success:function(dataSso){
-            	if(dataSso=='success'&& result == 'koolearn' || ( dataSso=='success'&& result == 'cloud'&& type == 0  )  ){//在koolearn的注册用户登录需要确认身份
-                    //alert("注册成功后跳转");
+            	if(dataSso=='success'&& result == 'koolearn' || ( dataSso=='success'&& result == 'cloud'&& type == 0  )  ){//
                     window.location="/makeSureUserRole?userId=" + data.userId;
                 }else if(dataSso=='success'&& result == 'cloud' ){
                     //alert("跳转");
