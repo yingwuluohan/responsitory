@@ -58,6 +58,8 @@
           <element id="archive" name="common-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="common" />
           </element>
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.4.1" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.4.3" />
           <element id="library" level="project" name="Maven: com.cloudhopper.proxool:proxool:0.9.1" />
           <element id="library" level="project" name="Maven: com.cloudhopper.proxool:proxool-cglib:0.9.1" />
           <element id="library" level="project" name="Maven: avalon-framework:avalon-framework-api:4.3" />
