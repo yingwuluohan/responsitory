@@ -14,7 +14,26 @@
 	<!-- ②：启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
 
 	<bean id="hostUserArgumentResolver" class="com.common.resolver.HostUserArgumentResolver" />
-
+	<bean id="coversionService" class="com.common.convert.AntiXSSConversionService"></bean>
+	<bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" >
+		<property name="providerClass"  value="org.hibernate.validator.HibernateValidator"/>
+	</bean>
+	<mvc:annotation-driven conversion-service="coversionService" validator="validator">
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"></bean>
+			<ref bean="jacksonMessageConverter"></ref>
+		</mvc:message-converters>
+		<mvc:argument-resolvers>
+			<bean class="com.common.resolver.HostUserArgumentResolver" />
+		</mvc:argument-resolvers>
+	</mvc:annotation-driven>
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		  p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" />

@@ -1,6 +1,5 @@
-package com.fang.controller.uploadFile;
+package com.fang.controller.uploadFileController;
 
-import com.modle.User;
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.*;
 import org.springframework.stereotype.Controller;
