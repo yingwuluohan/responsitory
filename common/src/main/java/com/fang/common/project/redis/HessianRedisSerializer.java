@@ -27,8 +27,7 @@ public class HessianRedisSerializer<T> implements RedisSerializer<T> {
             result = (T) objectInputStream.readObject();
             //objectInputStream.completeMessage();
         } catch (Exception ex) {
-            throw new SerializationException("Cannot deserialize with hessian",
-                    ex);
+            throw new SerializationException("Cannot deserialize with hessian", ex);
         } finally {
             if (null != objectInputStream) {
                 try {

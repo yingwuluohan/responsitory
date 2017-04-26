@@ -20,6 +20,6 @@
     <dubbo:service interface="com.fang.service.CacheToolsService" ref="cacheToolsService" protocol="dubbo"/>
     <!-- dubbo简易监控中心
     <dubbo:monitor protocol="registry"></dubbo:monitor>
-    <context:component-scan base-package="com.fang.global.service.impl"></context:component-scan>
+    <context:component-scan basecontroller-package="com.fang.global.service.impl"></context:component-scan>
     -->
 </beans>

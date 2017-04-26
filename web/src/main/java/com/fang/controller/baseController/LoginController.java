@@ -1,4 +1,4 @@
-package com.fang.controller.base;
+package com.fang.controller.basecontroller;
 
 
 import com.fang.common.project.CommonConstant;

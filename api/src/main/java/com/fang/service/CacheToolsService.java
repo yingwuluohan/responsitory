@@ -1,9 +1,9 @@
 package com.fang.service;
 
 /**
- * Created by fn on 2017/3/1.
+ * Created by fn on 2017/3/23.
  */
-public interface CacheToolsService  {
+public interface CacheToolsService {
 
     <T> void addCache(String key, int time, T ot);
     <T> T getCache(String key, Class<T> classes);

@@ -13,7 +13,7 @@
 
 
     <properties>
-        <spring.version>4.0.7.RELEASE</spring.version>
+        <spring.version>4.1.6.RELEASE</spring.version>
         <servlet-api.version>3.0.1</servlet-api.version>
         <commons.beanutils.version>1.8.3</commons.beanutils.version>
         <org.aspectj.version>1.6.8</org.aspectj.version>
@@ -47,10 +47,11 @@
         <jetty_version>6.1.26</jetty_version>
         <netty_version>3.2.5.Final</netty_version>
         <logback_version>1.0.6</logback_version>
-        <spring.data.mongodb>1.9.2.RELEASE</spring.data.mongodb>
+
         <mongodb.java.driver>3.2.2</mongodb.java.driver>
         <fastjson.version>1.2.3</fastjson.version>
         <jackson.version>2.7.0</jackson.version>
+        <spring-core-version>3.2.3.RELEASE</spring-core-version>
     </properties>
     <!-- 不同的打包环境 -->
     <profiles>
@@ -123,11 +124,7 @@
             <version>${mongodb.java.driver}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-mongodb</artifactId>
-            <version>${spring.data.mongodb}</version>
-        </dependency>
+
         <dependency>
             <groupId>org.mortbay.jetty</groupId>
             <artifactId>jetty</artifactId>
@@ -222,8 +219,9 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
+            <version>4.1.6.RELEASE</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
@@ -256,13 +254,6 @@
             <version>${jsp-api-version}</version>
             <scope>provided</scope>
         </dependency>
-        <!--
-        <dependency>
-          <groupId>org.apache.oro</groupId>
-          <artifactId>jakarta-oro</artifactId>
-          <version>${jakarta-oro-version}</version>
-        </dependency>
-        -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -273,16 +264,6 @@
             <artifactId>poi</artifactId>
             <version>${poi-version}</version>
         </dependency>
-
-        <!--
-        <dependency>
-            <groupId>org.apache.log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j-version}</version>
-        </dependency>
-        -->
-
-
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
@@ -298,20 +279,20 @@
             <artifactId>spring-data-redis</artifactId>
             <version>${spring-data-redis-version}</version>
         </dependency>
-
-
-
         <dependency>
             <groupId>father</groupId>
             <artifactId>api</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
-
-
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback_version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-messaging</artifactId>
+            <version>4.2.2.RELEASE</version>
         </dependency>
     </dependencies>
 

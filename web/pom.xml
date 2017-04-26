@@ -13,7 +13,7 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <spring.version>4.0.7.RELEASE</spring.version>
+        <spring.version>4.1.6.RELEASE</spring.version>
         <servlet-api.version>3.0.1</servlet-api.version>
         <commons.beanutils.version>1.8.3</commons.beanutils.version>
         <org.aspectj.version>1.6.8</org.aspectj.version>
@@ -143,6 +143,26 @@
             <artifactId>spring-aop</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
         <!--mybatis-->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -174,26 +194,7 @@
         </dependency>
         <!--aspectj end-->
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
@@ -211,13 +212,7 @@
             <version>${jsp-api-version}</version>
             <scope>provided</scope>
         </dependency>
-        <!--
-        <dependency>
-          <groupId>org.apache.oro</groupId>
-          <artifactId>jakarta-oro</artifactId>
-          <version>${jakarta-oro-version}</version>
-        </dependency>
-        -->
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -233,13 +228,7 @@
             <artifactId>poi-ooxml</artifactId>
             <version>${poi-ooxml-version}</version>
         </dependency>
-        <!--
-        <dependency>
-            <groupId>org.apache.log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j-version}</version>
-        </dependency>
-        -->
+
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
@@ -286,14 +275,25 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>4.3.0.Final</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.validation</groupId>
-                    <artifactId>validation-api</artifactId>
-                </exclusion>
-            </exclusions>
+
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.4</version>
         </dependency>
 
+       <!-- spring 4 以后依赖包 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.9.0.pr2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.0.pr1</version>
+        </dependency>
     </dependencies>
 
     <build>

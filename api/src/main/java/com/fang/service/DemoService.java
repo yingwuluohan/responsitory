@@ -1,13 +1,12 @@
 package com.fang.service;
 
-
 import com.modle.User;
 import com.modle.page.Page;
 
 import java.util.List;
 
 /**
- * Created by fn on 2017/2/9.
+ * Created by  on 2017/2/9.
  */
 public interface DemoService {
 

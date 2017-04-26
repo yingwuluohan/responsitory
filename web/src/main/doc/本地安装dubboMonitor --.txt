@@ -1,0 +1,28 @@
+1.
+
+2. service 的 dubbo.properties文件配置协议：dubbo.monitor.protocol=registryMonitor
+
+pox.xml <version>1.0-${project.environment}-SNAPSHOT</version>
+
+
+3. web 端的environment_trunk.properties文件配置：dubbo.monitor=<dubbo:monitor protocol="registry"/>
+
+
+
+4.本地访问地址：（dubbo.jetty.port=8081 ）http://127.0.0.1:8081
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
