@@ -6,7 +6,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by fn on 2017/2/28.
+ * Created by  on 2017/2/28.
  */
 public class WebUtil {
     public static String getSSOSessionId(HttpServletRequest request) {

@@ -1,9 +1,12 @@
 package com.fang.global.service.impl;
 
+import com.common.utils.redis.RadisCacheUtil;
+import com.fang.service.CacheToolsService;
 import com.modle.User;
 import com.fang.global.dao.DemoDao;
 import com.fang.service.DemoService;
 import com.modle.page.Page;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +23,9 @@ public class DemoServiceImpl implements DemoService {
 
     @Resource
     private DemoDao demoDao;
+    @Autowired
+    private CacheToolsService cacheToolsService;
+
 
     public DemoDao getDemoDao() {
         return demoDao;
@@ -32,6 +38,7 @@ public class DemoServiceImpl implements DemoService {
     public String findUserName( ) {
         System.out.println( "" + demoDao );
         List< String > list =  demoDao.findUserNameList(  );
+        cacheToolsService.addCacheForever( "redisTest:list" , list );
         System.out.println( list );
         return null;
     }

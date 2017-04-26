@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- * Created by fn on 2017/2/28.
+ * Created by  on 2017/2/28.
  */
 public class CommonUtil {
     public static List<String> strToList(String str, String delimiter) {

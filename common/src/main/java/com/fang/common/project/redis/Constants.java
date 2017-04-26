@@ -1,7 +1,7 @@
 package com.fang.common.project.redis;
 
 /**
- * 2015/11/4.
+ * 2016/11/4.
  */
 public class Constants {
     public static final String SYSTEM_GLOBAL = "SystemGlobals.properties";

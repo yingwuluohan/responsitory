@@ -35,21 +35,14 @@ public class CacheToolsServiceImpl implements CacheToolsService {
         return t;
     }
     public  void delCache(String key) {
-        try {
             client.del(key);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
     public <T> T getCacheNoTime(String key,Class<T> classes) {
         T t = client.get(key, classes);
         return t;
     }
     public <T> void addCacheForever(String key, T ot) {
-        try {
             client.set(key, ot);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 }

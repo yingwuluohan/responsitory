@@ -7,7 +7,6 @@ import com.fang.common.project.redis.Router;
 import java.util.concurrent.*;
 
 /**
- * Created by yaopeng on 2015/11/4.
  */
 public class HealthChecker {
 
@@ -25,7 +24,10 @@ public class HealthChecker {
 
     private HealthChecker(){
         healthCheckTimer = Executors.newScheduledThreadPool(1);
-        executor = new ThreadPoolExecutor(Constants.EXECUTOR_POOL_CORE_SIZE, Constants.EXECUTOR_POOL_MAX_SIZE, 0L, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(Constants.EXECUTOR_POOL_ARRAY_QUEUE_SIZE), new ThreadPoolExecutor.DiscardPolicy());
+        executor = new ThreadPoolExecutor(Constants.EXECUTOR_POOL_CORE_SIZE,
+                Constants.EXECUTOR_POOL_MAX_SIZE, 0L, TimeUnit.SECONDS,
+                new ArrayBlockingQueue<Runnable>(Constants.EXECUTOR_POOL_ARRAY_QUEUE_SIZE),
+                new ThreadPoolExecutor.DiscardPolicy());
     }
 
     public void start(){

@@ -36,7 +36,6 @@ public class TestController {
     @RequestMapping( value="/go" ,method= RequestMethod.GET )
     public String goTest(HttpServletRequest request , HttpServletResponse response){
         String result = demoService.findUserName();
-        RadisCacheUtil.addCache( "RedisTest" , 60 * 10 , result );
         return "test";
     }
 
