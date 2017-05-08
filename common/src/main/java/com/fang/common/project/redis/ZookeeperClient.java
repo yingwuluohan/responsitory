@@ -83,8 +83,7 @@ public class ZookeeperClient {
             try {
                 zookeeper.close();
                 zookeeper = null;
-            }
-            catch (InterruptedException e) {
+            }  catch (InterruptedException e) {
                 // ignore exception
             }
         }

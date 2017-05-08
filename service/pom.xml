@@ -51,7 +51,7 @@
         <mongodb.java.driver>3.2.2</mongodb.java.driver>
         <fastjson.version>1.2.3</fastjson.version>
         <jackson.version>2.7.0</jackson.version>
-        <spring-core-version>3.2.3.RELEASE</spring-core-version>
+        <spring-core-version>4.1.6.RELEASE</spring-core-version>
     </properties>
     <!-- 不同的打包环境 -->
     <profiles>

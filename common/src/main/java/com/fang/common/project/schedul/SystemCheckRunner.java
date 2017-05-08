@@ -24,7 +24,7 @@ public class SystemCheckRunner {
 
     private static SystemCheckRunner system = new SystemCheckRunner();
     public SystemCheckRunner(){
-        scheduledExecutorThread = Executors.newScheduledThreadPool(2);//单线程
+        scheduledExecutorThread = Executors.newScheduledThreadPool(5);//多线程
         executor = new ThreadPoolExecutor( 10 ,20 , 0L, TimeUnit.SECONDS,
                    new ArrayBlockingQueue<Runnable>( 10000 ),
                    new ThreadPoolExecutor.DiscardPolicy()

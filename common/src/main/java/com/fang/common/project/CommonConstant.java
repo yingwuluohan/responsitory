@@ -11,6 +11,7 @@ public class CommonConstant {
     public static final String ERR_CODE_KEY = "errCode";
     public static final String ERR_MSG_KEY = "errMsg";
 
+    public static final String SSO_ID = "sso.ssoId";
     public static final String COOKIE_AUTOLOGIN_KEY = "autoLogin";
     public static final String COOKIE_NAMEPASS_KEY = "namePasswd";
     public static final Object COOKIE_AUTOLOGIN_ON = "on";
