@@ -18,6 +18,12 @@
 
     <bean id="cacheToolsService" class="com.fang.global.service.impl.utils.CacheToolsServiceImpl" />
     <dubbo:service interface="com.fang.service.CacheToolsService" ref="cacheToolsService" protocol="dubbo"/>
+    <!--聊天-->
+    <bean id="chartRoomService" class="com.fang.global.chat.impl.ChartRoomServiceImpl"  />
+    <dubbo:service interface="com.fang.service.chart.ChartRoomService" ref="chartRoomService" protocol="dubbo"/>
+    <bean id="clientService" class="com.fang.global.chat.impl.ClientService" />
+    <dubbo:service interface="com.fang.service.chart.ClientServiceApi" ref="clientService" protocol="dubbo"/>
+
     <!-- dubbo简易监控中心
     <dubbo:monitor protocol="registry"></dubbo:monitor>
     <context:component-scan basecontroller-package="com.fang.global.service.impl"></context:component-scan>

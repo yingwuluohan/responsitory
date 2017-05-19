@@ -15,7 +15,10 @@
     <dubbo:reference id="demoService"  interface="com.fang.service.DemoService"  />
     <dubbo:reference id="testRedisOperaterService"  interface="com.fang.service.TestRedisOperaterService"  />
     <dubbo:reference id="cacheToolsService"  interface="com.fang.service.CacheToolsService"  />
+    <!--聊天-->
+    <dubbo:reference id="chartRoomService"  interface="com.fang.service.chart.ChartRoomService"  />
 
+    <dubbo:reference id="clientService"  interface="com.fang.service.chart.ClientServiceApi"  />
     <!-- 远程服务调用重试次数，不包括第一次调用 -->
     <dubbo:consumer retries="0" timeout="@dubbo.timeout@" />
     @dubbo.monitor@
