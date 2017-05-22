@@ -14,8 +14,8 @@
     <script src="/js/json_parse.js"></script>
     <script>
         $(function(){
-            alert();
-            $.post( "/chat/receiveMsg" ,{ },function(data){
+
+            $.post( "" ,{ },function(data){
 
             });
         });

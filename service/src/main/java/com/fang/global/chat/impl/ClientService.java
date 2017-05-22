@@ -43,6 +43,7 @@ public class ClientService implements ClientServiceApi{
      * @param msg
      */
     public void sendMsg(String msg) {
+        System.out.println( msg );
         try {
             while (!socketChannel.finishConnect()) {
             }

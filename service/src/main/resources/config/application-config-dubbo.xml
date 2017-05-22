@@ -24,6 +24,13 @@
     <bean id="clientService" class="com.fang.global.chat.impl.ClientService" />
     <dubbo:service interface="com.fang.service.chart.ClientServiceApi" ref="clientService" protocol="dubbo"/>
 
+    <!--网页聊天实验2 NIO-->
+    <bean id="chatRoomServerInitService" class="com.fang.global.chat.impl.ChatRoomServerInitServiceImpl" />
+    <dubbo:service interface="com.fang.service.chart.ChatRoomServerInitService" ref="chatRoomServerInitService" protocol="dubbo"/>
+    <bean id="chatRoomServerClientService" class="com.fang.global.chat.impl.ChatRoomServerClientServiceImpl" />
+    <dubbo:service interface="com.fang.service.chart.ChatRoomServerClientService" ref="chatRoomServerClientService" protocol="dubbo"/>
+
+
     <!-- dubbo简易监控中心
     <dubbo:monitor protocol="registry"></dubbo:monitor>
     <context:component-scan basecontroller-package="com.fang.global.service.impl"></context:component-scan>

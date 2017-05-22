@@ -1,8 +1,9 @@
 package com.fang.controller.chatController;
 
-import com.alibaba.fastjson.JSONObject;
 import com.chart.ClientService;
 import com.fang.service.chart.ChartRoomService;
+import com.fang.service.chart.ChatRoomServerClientService;
+import com.fang.service.chart.ChatRoomServerInitService;
 import com.fang.service.chart.ClientServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,8 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * Created by fn on 2017/5/19.
@@ -26,22 +27,52 @@ public class ChatController {
     private ChartRoomService chartRoomService;
     @Autowired
     private ClientServiceApi clientService;
+    // 实验2
+    @Autowired
+    private ChatRoomServerClientService chatRoomServerClientService;
+    @Autowired
+    private ChatRoomServerInitService chatRoomServerInitService;
 
+    @RequestMapping( value="/initHttpChat" ,method= RequestMethod.GET )
+    public void initHttpChat(){
+        try {
+            new WebsocketChatServer( 8090 ).run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    @RequestMapping( value="/goHttpChat" ,method= RequestMethod.GET )
+    public String goHttpChat(){
+        return "chat/HttpChatNio";
+    }
     /**
      * 初始化聊天服务
+     * my.global.com:8080/chat/initChatServer
      */
     @RequestMapping( value="/initChatServer" ,method= RequestMethod.GET )
     public void initChatServer(){
 
-        chartRoomService.init( 19999 );
-        ClientService.getInstance();
+        //chartRoomService.init( 19999 );
+        try {
+            chatRoomServerInitService.init();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @RequestMapping( value="/goChat" ,method= RequestMethod.GET )
     public String goChat(){
-
+        try {
+            chatRoomServerClientService.initClientService();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return "chat/clientWindow";
     }
+
+
+
 
 
     /**
@@ -53,10 +84,12 @@ public class ChatController {
     @ResponseBody
     @RequestMapping( value="/sendMessage" ,method= RequestMethod.POST )
     public String sendMessage(HttpServletRequest request , HttpServletResponse response ){
-        clientService.sendMsg( "sdf3rrg" );
+        //ClientService.getInstance();
+        //clientService.sendMsg( "sdf3rrg" );
 
-        JSONObject param = (JSONObject) JSONObject.toJSON(  new HashMap< String , String >().put( "sdfdd" , "sdf"));
-        return param.toString();
+        //在主线程中 从键盘读取数据输入到服务器端
+        chatRoomServerClientService.writeContent(  "25dfgwe3" );
+        return "shoudao";
     }
 
     /**
@@ -70,7 +103,6 @@ public class ChatController {
     public String receiveMsg(HttpServletRequest request , HttpServletResponse response ){
         String message = clientService.receiveMsg(  );
 
-        JSONObject param = (JSONObject) JSONObject.toJSON( message );
-        return param.toString();
+        return message;
     }
 }
