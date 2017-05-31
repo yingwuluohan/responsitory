@@ -13,6 +13,11 @@ import io.netty.handler.stream.ChunkedWriteHandler;
  */
 public class WebsocketChatServerInitializer extends ChannelInitializer<SocketChannel> {    //1
 
+    /**
+     * 接收数据
+     * @param ch
+     * @throws Exception
+     */
     @Override
     public void initChannel(SocketChannel ch) throws Exception {//2
         ChannelPipeline pipeline = ch.pipeline();

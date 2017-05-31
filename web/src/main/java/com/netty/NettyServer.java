@@ -49,20 +49,17 @@ class Server {
     class MyChannelHandler extends SimpleChannelHandler {
 
         @Override
-        public void channelClosed(ChannelHandlerContext ctx, ChannelStateEvent e)
-                throws Exception {
+        public void channelClosed(ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception {
             System.out.println("Channel closed "+e.getValue()  + e);
         }
 
         @Override
-        public void channelConnected(ChannelHandlerContext ctx,
-                                     ChannelStateEvent e) throws Exception {
+        public void channelConnected(ChannelHandlerContext ctx,  ChannelStateEvent e) throws Exception {
             System.out.println("Channel connected " + e);
         }
 
         @Override
-        public void messageReceived(ChannelHandlerContext ctx, MessageEvent e)
-                throws Exception {
+        public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) throws Exception {
             try {
                 System.out.println("New message " + e.toString() + " from " + ctx.getChannel());
                 processMessage(e);

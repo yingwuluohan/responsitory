@@ -10,12 +10,12 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.LineBasedFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
 
-import java.net.Socket;
 
 /**
  * Created by fn on 2017/5/12.
  */
 public class TimeServer {
+
 
     public void bind( int port ) throws Exception{
         EventLoopGroup bossGroup = new NioEventLoopGroup();

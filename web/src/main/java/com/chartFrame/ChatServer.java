@@ -1,4 +1,4 @@
-package com.chart;
+package com.chartFrame;
 
 /**
  * Created by fn on 2017/5/18.

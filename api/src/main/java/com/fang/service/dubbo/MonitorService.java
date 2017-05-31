@@ -59,7 +59,7 @@ public interface MonitorService {
 
     /**
      * 监控数据查询. 
-     * 1. 支持按天查询：count://host/interface?application=foo&method=foo&side=provider&view=chart&date=2012-07-03
+     * 1. 支持按天查询：count://host/interface?application=foo&method=foo&side=provider&view=chartFrame&date=2012-07-03
      * 1.1 host,application,interface,group,version,method 查询主机，应用，接口，方法的匹配条件，缺失的条件的表示全部，host用0.0.0.0表示全部。
      * 1.2 side=consumer,provider 查询由调用的哪一端采集的数据，缺省为都查询。
      * 1.3 缺省为view=summary，返回全天汇总信息，支持view=chart表示返回全天趋势图表图片的URL地址，可以进接嵌入其它系统的页面上展示。

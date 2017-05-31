@@ -1,6 +1,5 @@
 package com.fang.controller.chatController;
 
-import com.chart.ClientService;
 import com.fang.service.chart.ChartRoomService;
 import com.fang.service.chart.ChatRoomServerClientService;
 import com.fang.service.chart.ChatRoomServerInitService;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Scanner;
 
 /**
  * Created by fn on 2017/5/19.

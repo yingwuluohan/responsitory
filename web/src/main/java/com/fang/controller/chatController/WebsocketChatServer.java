@@ -1,10 +1,9 @@
 package com.fang.controller.chatController;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
@@ -27,8 +26,9 @@ public class WebsocketChatServer {
             b.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class) // (3)
                     .childHandler(new WebsocketChatServerInitializer())  //(4)
-                    .option(ChannelOption.SO_BACKLOG, 128)          // (5)
-                    .childOption(ChannelOption.SO_KEEPALIVE, true); // (6)
+                    .option(ChannelOption.SO_BACKLOG, 1024 )       // (5)
+                    //.childHandler( new ChildChannelHandler());
+                   .childOption(ChannelOption.SO_KEEPALIVE, true); // (6)
 
             System.out.println("WebsocketChatServer 启动了");
 
@@ -56,4 +56,6 @@ public class WebsocketChatServer {
         new WebsocketChatServer(port).run();
 
     }
+
+
 }
