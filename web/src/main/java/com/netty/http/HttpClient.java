@@ -19,6 +19,7 @@ import io.netty.handler.codec.http.HttpVersion;
 import java.net.URI;
 
 public class HttpClient {
+    @Deprecated
     public void connect(String host, int port) throws Exception {
         EventLoopGroup workerGroup = new NioEventLoopGroup();
 

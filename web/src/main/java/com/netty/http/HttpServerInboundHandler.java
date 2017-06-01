@@ -6,6 +6,7 @@ import static io.netty.handler.codec.http.HttpHeaders.Names.CONTENT_TYPE;
 import static io.netty.handler.codec.http.HttpResponseStatus.OK;
 import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
+import io.netty.channel.SimpleChannelInboundHandler;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -20,7 +21,7 @@ import io.netty.handler.codec.http.HttpHeaders;
 import io.netty.handler.codec.http.HttpHeaders.Values;
 import io.netty.handler.codec.http.HttpRequest;
 
-public class HttpServerInboundHandler extends ChannelInboundHandlerAdapter {
+public class HttpServerInboundHandler extends SimpleChannelInboundHandler {
 
     private static Log log = LogFactory.getLog(HttpServerInboundHandler.class);
 
@@ -28,6 +29,10 @@ public class HttpServerInboundHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg)  throws Exception {
+    }
+
+    @Override
+    protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
         if (msg instanceof HttpRequest) {
             request = (HttpRequest) msg;
             String uri = request.getUri();
@@ -52,6 +57,11 @@ public class HttpServerInboundHandler extends ChannelInboundHandlerAdapter {
         }
     }
 
+    @Override
+    public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
+        System.err.println("服务端Handler创建...");
+        super.handlerAdded(ctx);
+    }
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
         ctx.flush();

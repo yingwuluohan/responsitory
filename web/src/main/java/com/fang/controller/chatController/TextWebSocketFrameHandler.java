@@ -31,9 +31,9 @@ public class TextWebSocketFrameHandler extends SimpleChannelInboundHandler<TextW
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {  // (2)
         Channel incoming = ctx.channel();
         for (Channel channel : channels) {
-            channel.writeAndFlush(new TextWebSocketFrame("[SERVER] - " + incoming.remoteAddress() + " 加入"));
+            channel.writeAndFlush(new TextWebSocketFrame("[SERVER]handlerAdded - " + incoming.remoteAddress() + " 加入"));
         }
-        channels.add(ctx.channel());
+        channels.add( incoming );
         System.out.println("Client:"+incoming.remoteAddress() +"加入");
     }
 
@@ -47,9 +47,12 @@ public class TextWebSocketFrameHandler extends SimpleChannelInboundHandler<TextW
         channels.remove(ctx.channel());
     }
 
-    @Override
+        @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception { // (5)
         Channel incoming = ctx.channel();
+        for (Channel channel : channels) {
+            channel.writeAndFlush(new TextWebSocketFrame("[SERVER]channelActive - " + incoming.remoteAddress() + " 加入"));
+        }
         System.out.println("Client:"+incoming.remoteAddress()+"在线");
     }
 

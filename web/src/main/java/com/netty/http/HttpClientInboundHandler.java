@@ -24,4 +24,5 @@ public class HttpClientInboundHandler extends ChannelInboundHandlerAdapter {
             buf.release();
         }
     }
+
 }
