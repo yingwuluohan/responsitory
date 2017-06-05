@@ -4,6 +4,7 @@ package com.fang.controller.basecontroller;
 import com.fang.common.project.CommonConstant;
 import com.fang.common.project.CookieUtil;
 import com.fang.service.CacheToolsService;
+import com.fang.service.DemoService;
 import com.modle.User;
 import com.modle.constance.RedisKey;
 import org.apache.commons.lang3.StringUtils;
@@ -32,6 +33,8 @@ public class LoginController extends BaseController {
 	private String host = "global";
 	@Autowired
 	private CacheToolsService cacheToolsService;
+	@Autowired
+	private DemoService demoService;
 
 
 	@RequestMapping("/loginPage")
@@ -65,34 +68,19 @@ public class LoginController extends BaseController {
 		Map map = new HashMap();
 		String random = getParamter("random");
 		String uuid = request.getParameter("uuid");
-		String randomCache = cacheToolsService.getCache(RedisKey.getLoginVerifyImage(uuid), String.class);
-		System.out.println("输入的验证码:"+random+"  缓存中的验证码："+randomCache);
-        if(StringUtils.isBlank( randomCache )  ){
-            map.put("success", false );
-            map.put("errMsg", "验证码失效！");
-        }else if(StringUtils.isBlank(random) || !random.equalsIgnoreCase(randomCache)){
-			//存储业务系统用户信息
-			map.put("success", false);
-			map.put("errMsg", "验证码错误！");
-		}else{
-			String mobileEmail = getParamter("mobileEmail");
-			String password = getParamter("password");
-			User ue = null;//loginService.findUser(mobileEmail);
-			if(ue!=null){
-				CookieUtil.setCookie(request, response, host , ue.getId().toString());
-				cacheToolsService.addCacheForever(ue.getId().toString(), ue);
-                if( StringUtils.isEmpty(  ue.getType()+"" ) || null == ue.getType() ){
-                    map.put("userType", 0 );
-                }else{
-                    map.put("userType", ue.getType() );
-                }
-				map.put("success", true);
-                map.put("system", "cloud");
-				map.put("userName", ue.getUserName());
-                map.put("userId", ue.getId() );
-				map.put("password", password);
+		System.out.println( "uuid:" + uuid );
+		String mobileEmail = getParamter("mobileEmail");
+		//String password = getParamter("password");
+		User ue = demoService.findUser(mobileEmail);
+		if(ue!=null){
+			CookieUtil.setCookie(request, response, host , ue.getId().toString());
+			cacheToolsService.addCacheForever(ue.getId().toString(), ue);
+			if( StringUtils.isEmpty(  ue.getType()+"" ) || null == ue.getType() ){
+				map.put("userType", 0 );
 			}else{
-             }
+				map.put("userType", ue.getType() );
+			}
+			map.put("success", true);
 		}
 		return map;
 	}

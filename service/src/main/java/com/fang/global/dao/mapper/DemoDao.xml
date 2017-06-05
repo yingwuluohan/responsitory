@@ -19,8 +19,11 @@
 
     <update id="updateUserName" parameterType="java.util.HashMap">
       update user set user_name =#{userName} where id =#{userId}
-
     </update>
+
+    <select id="findUserByMobile"   resultType="com.modle.User" parameterType="string">
+        select id ,user_name ,mobile,email,user_id from user where mobile =#{value} or email = #{value}
+    </select>
 
 
 

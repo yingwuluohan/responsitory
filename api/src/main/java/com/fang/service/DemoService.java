@@ -11,6 +11,7 @@ import java.util.List;
 public interface DemoService {
 
     String findUserName(  );
+    User findUser( String emailAndMobile );
     String updateUserName(String userId );
 
     List< User > findUserInfo(Page page);

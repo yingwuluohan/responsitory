@@ -62,4 +62,16 @@ public class DemoServiceImpl implements DemoService {
         System.out.println( "更新结果:" + id );
         return null;
     }
+
+    /**
+     * 查询用户信息
+     * @param emailAndMobile
+     * @return
+     */
+    public User findUser( String emailAndMobile ){
+        User user = new User();
+        user = demoDao.findUserByMobile( emailAndMobile );
+        return user;
+    }
+
 }

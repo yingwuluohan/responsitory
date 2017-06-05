@@ -23,4 +23,7 @@ public interface DemoDao {
      * @return
      */
     List<User> findUserInfo(Page page);
+
+
+    User findUserByMobile(String emailAndMobile);
 }
