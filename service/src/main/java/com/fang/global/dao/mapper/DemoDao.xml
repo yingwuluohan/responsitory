@@ -22,7 +22,7 @@
     </update>
 
     <select id="findUserByMobile"   resultType="com.modle.User" parameterType="string">
-        select id ,user_name ,mobile,email,user_id from user where mobile =#{value} or email = #{value}
+        select id ,user_name as userName ,mobile,email,user_id as userId from user where mobile =#{value} or email = #{value}
     </select>
 
 

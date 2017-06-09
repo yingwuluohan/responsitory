@@ -5,6 +5,7 @@ import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.handler.ssl.SslHandler;
 import io.netty.handler.stream.ChunkedNioFile;
+import org.springframework.stereotype.Component;
 
 
 import java.io.File;
@@ -16,6 +17,7 @@ import java.net.URL;
  * Created by fn on 2017/5/22.
  */
 //后面的泛型代表接受的消息的类型。
+
 public class HttpRequestHandler extends SimpleChannelInboundHandler<FullHttpRequest> { //1
     private final String wsUri;
     private static final File INDEX;

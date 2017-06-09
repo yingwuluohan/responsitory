@@ -1,75 +1,44 @@
-<%@ page import="com.fang.common.project.redis.PropertiesConfigUtils" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<fe:html title="登录" initSeajs="true" ie="true" defaultHead="<!DOCTYPE html><html>"
-         assets="/project/b-ms-cloud/1.x/css/t-login/page.css">
+
 <body>
-<div class="p-header">
-    <div class="i-box">
-        <a class="p-lg fl" href="#" target="_bank">
-            <img src="<%=PropertiesConfigUtils.getProperty("domains.ui") %>/project/b-ms-cloud/1.x/i/i-logo.png">
-        </a>
-        <b class="p-b fl"></b>
-    </div>
-</div>
+
 <div class="p-login-body">
     <div class="i-box">
-        <form action="" id="jp-login-form" method="post">
+        <form action="" id="formTest1" method="post" action="my.global.com:8080/login">
             <div class="p-layer">
                 <h2>登录</h2>
                 <ul>
-                    <li><div class="p-inp"><input type="text" placeholder="请输入用户名/手机号" id="jp-tel"/><em></em></div></li>
-                    <li><div class="p-inp"><input type="password" placeholder="请输入密码" id="jp-pass"/><em></em></div></li>
+                    <li> <input type="text" placeholder="请输入用户名/手机号" id="mobile" name="mobile" value="13258155657"/><em></em> </li>
+                    <li> <input type="password" placeholder="请输入密码" id="password" name="password"/><em></em> </li>
 
-                    <li><a href="javascript:;" class="p-btn" id="jp-sub">登录</a></li>
+                    <li><a href="javascript:;" class="p-btn" id="jp-sub" onclick="login()">登录</a></li>
                 </ul>
-                <div class="fc p-link">
-                    <div class="fl"><a href="javascript:;" onclick="toBackPwd('${ssoUrl}','<%="domain"%>');" target="_blank">忘记密码</a></div>
-                    <div class="fr"><a href="/registPage">注册</a></div>
-                </div>
             </div>
         </form>
     </div>
 </div>
 </body>
-<script type="text/javascript">
-    seajs.config({
-        alias:{
-            'project/b-ms-cloud/1.x/js/t-login/page': 'project/b-ms-cloud/1.x/js/t-login/page.js'
-        }
-    });
-    seajs.use(['project/b-ms-cloud/1.x/js/t-login/page'],function(app){
-        var json = {
-            "login" :  login,
-            'yzmAjaxUrl':'/randomLogin?uuid=${uuid}'//验证码请求地址
-        };
-        app.init(json);
-    });
-</script>
+<script src="/js/jquery-1.8.2.min.js"></script>
+<script src="/js/json2.js"></script>
+<script src="/js/json_parse.js"></script>
 <script type="text/javascript">
     function login(){
-    	var mobileEmail = $('#jp-tel').val();
-    	var password = $('#jp-pass').val();
-    	var random = $('#jp-yzm').val();
-    	$.ajax({
-    	    url:'/login',
-    	    type:'post',
-    	    async: false,
-    	    dataType:'json',
-    	    data:{
-    	    	mobileEmail : mobileEmail,
-    	        password : password,
-    	        uuid:'${uuid}'
-    	    },
-    	    success:function(data){
-    	        if(data.success==true){
-                    window.location="/first";
-    	        }else{
-    	        	changeRandom();
-    	        	//console.info(data.errMsg);
-    	        	alert(data.errMsg);
-    	        }
-    	    }
-    	})
+    	var mobileEmail = $("#mobile").val();
+    	var password = $("#password").val();
+
+        var turnForm = document.createElement("form");
+        //一定要加入到body中！！
+        document.body.appendChild(turnForm);
+        turnForm.method = "get";
+        turnForm.action = "/login";
+        turnForm.target = '_self';
+        //创建隐藏表单
+        var subjectIdElement = document.createElement("input");
+        subjectIdElement.setAttribute("name","mobileEmail");
+        subjectIdElement.setAttribute("type","hidden");
+        subjectIdElement.setAttribute("value",mobileEmail);
+        turnForm.appendChild(subjectIdElement);
+        turnForm.submit();
     }
 
     function regLogin(data){
@@ -106,5 +75,5 @@
      }
 
 </script>
-</fe:html>
+
 

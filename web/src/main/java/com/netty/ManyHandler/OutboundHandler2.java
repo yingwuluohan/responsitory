@@ -4,12 +4,13 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelOutboundHandlerAdapter;
 import io.netty.channel.ChannelPromise;
+import org.apache.log4j.Logger;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 public class OutboundHandler2 extends ChannelOutboundHandlerAdapter {
-    private static Logger   logger  = LoggerFactory.getLogger(OutboundHandler2.class);
+    private static Logger   logger  = Logger.getLogger(OutboundHandler2.class);
 
     @Override
     public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {

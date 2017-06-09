@@ -51,7 +51,7 @@ public class SystemCheckRunner {
             public void run() {
                 System.out.println( " 当前线程：" + Thread.currentThread().getName()  + ":" + System.currentTimeMillis()  );
             }
-        }, 0,  10 , TimeUnit.SECONDS );
+        }, 0,  600 , TimeUnit.SECONDS );
     }
     public void stop(){
         scheduledFuture.cancel(true);

@@ -1,8 +1,8 @@
 package com.fang.global.chat.impl;
 
 import com.fang.service.chart.ChatRoomServerInitService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
+
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -17,7 +17,7 @@ import java.util.Set;
  * Created by fn on 2017/5/19.
  */
 public class ChatRoomServerInitServiceImpl implements ChatRoomServerInitService {
-    private static Logger log = LoggerFactory.getLogger(ChatRoomServerInitServiceImpl.class);
+    private static Logger log = Logger.getLogger(ChatRoomServerInitServiceImpl.class);
     private Selector selector = null;
     static final int port = 9999;
     private Charset charset = Charset.forName("UTF-8");

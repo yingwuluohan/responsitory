@@ -69,8 +69,7 @@ public class DemoServiceImpl implements DemoService {
      * @return
      */
     public User findUser( String emailAndMobile ){
-        User user = new User();
-        user = demoDao.findUserByMobile( emailAndMobile );
+        User user = demoDao.findUserByMobile( emailAndMobile );
         return user;
     }
 

@@ -4,6 +4,7 @@ import com.fang.service.chart.ChartRoomService;
 import com.fang.service.chart.ChatRoomServerClientService;
 import com.fang.service.chart.ChatRoomServerInitService;
 import com.fang.service.chart.ClientServiceApi;
+import com.modle.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,7 @@ public class ChatController {
     @Autowired
     private ChatRoomServerInitService chatRoomServerInitService;
 
+    @ResponseBody
     @RequestMapping( value="/initHttpChat" ,method= RequestMethod.GET )
     public void initHttpChat(){
         try {
@@ -41,7 +43,11 @@ public class ChatController {
     }
 
     @RequestMapping( value="/goHttpChat" ,method= RequestMethod.GET )
-    public String goHttpChat(){
+    public String goHttpChat( User user ,HttpServletRequest request ){
+        if( null != user ){
+            request.setAttribute( "id" , user.getId() );
+            request.setAttribute( "mobile" , user.getMobile());
+        }
         return "chat/HttpChatNio";
     }
     /**

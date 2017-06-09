@@ -3,12 +3,12 @@ package com.netty.ManyHandler;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import org.apache.log4j.Logger;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class InboundHandler1 extends ChannelInboundHandlerAdapter {
-    private static Logger   logger  = LoggerFactory.getLogger(InboundHandler1.class);
+    //private static Logger   logger  = LoggerFactory.getLogger(InboundHandler1.class);
+    private static Logger   logger  = Logger.getLogger(InboundHandler1.class);
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {

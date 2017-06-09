@@ -3,12 +3,14 @@ package com.netty.ManyHandler;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import org.apache.log4j.Logger;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 public class InboundHandler2 extends ChannelInboundHandlerAdapter {
-    private static Logger   logger  = LoggerFactory.getLogger(InboundHandler2.class);
+    //private static Logger   logger  = LoggerFactory.getLogger(InboundHandler2.class);
+    private static Logger logger  = Logger.getLogger(InboundHandler2.class);
 
     @Override
     // 读取Client发送的信息，并打印出来

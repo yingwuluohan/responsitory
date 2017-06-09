@@ -4,9 +4,9 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import org.apache.log4j.Logger;
 import org.omg.CORBA.Object;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 import java.io.UnsupportedEncodingException;
 
@@ -14,7 +14,7 @@ import java.io.UnsupportedEncodingException;
  * Created by fn on 2017/5/10.
  */
 public class TimeClientHandler extends ChannelHandlerAdapter {
-    private static Logger log = LoggerFactory.getLogger( TimeClientHandler.class);
+    private static Logger log = Logger.getLogger( TimeClientHandler.class);
 
     private final ByteBuf firstMassege;
 

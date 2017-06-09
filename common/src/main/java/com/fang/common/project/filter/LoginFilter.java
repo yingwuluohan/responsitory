@@ -33,8 +33,8 @@ import com.modle.Authorization;
 import com.modle.User;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
+
 
 import static com.fang.common.project.CommonConstant.HEADER_REFER;
 
@@ -50,7 +50,7 @@ public abstract class LoginFilter extends HttpServlet implements Filter {
 
     private static final long serialVersionUID = 3790304348005628945L;
 
-    private static final Logger logger = LoggerFactory.getLogger(LoginFilter.class);
+    private static final Logger logger = Logger.getLogger(LoginFilter.class);
 
     private static final String NEXT_PAGE_NAME = "next_page";
 

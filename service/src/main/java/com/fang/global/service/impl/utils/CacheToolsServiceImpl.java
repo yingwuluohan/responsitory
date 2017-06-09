@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service("cacheToolsService")
 public class CacheToolsServiceImpl implements CacheToolsService {
 
-    //static KooJedisClient client = SpringContextUtils.getBean("redisClient", KooJedisClient.class);
+    //static KooJedisClient clientSer = SpringContextUtils.getBean("redisClient", KooJedisClient.class);
     @Autowired
     private KooJedisClient client;
 
@@ -42,7 +42,9 @@ public class CacheToolsServiceImpl implements CacheToolsService {
         return t;
     }
     public <T> void addCacheForever(String key, T ot) {
-            client.set(key, ot);
+        KooJedisClient clientSer = SpringContextUtils.getBean("redisClient", KooJedisClient.class);
+        clientSer.set(key, ot);
+
 
     }
 }

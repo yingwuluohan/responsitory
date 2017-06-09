@@ -8,7 +8,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
 /**
- * Created by fn on 2017/2/28.
+ * Created by   on 2017/2/28.
  */
 public class HessianRedisSerializer<T> implements RedisSerializer<T> {
     @SuppressWarnings("unchecked")

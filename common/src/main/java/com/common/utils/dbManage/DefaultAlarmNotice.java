@@ -1,8 +1,8 @@
 package com.common.utils.dbManage;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import com.alibaba.dubbo.common.logger.LoggerFactory;
+import org.apache.log4j.Logger;
 
 /**
  * 短信、邮件通知报警接口,后续加入消息队列统一处理
@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
  * <P>Date : 2013-4-7 </P>
  */
 public class DefaultAlarmNotice implements AlarmNotice {
-	private static final Logger logger = LoggerFactory.getLogger(DefaultAlarmNotice.class);
 	public void email() {
 		// TODO Auto-generated method stub
 
@@ -21,7 +20,6 @@ public class DefaultAlarmNotice implements AlarmNotice {
 
 	}
 	public void all() {
-		logger.debug("Call Send Email or Sms!");
 		email();
 		sms();
 	}

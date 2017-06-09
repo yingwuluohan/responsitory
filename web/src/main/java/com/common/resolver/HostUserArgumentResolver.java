@@ -1,5 +1,6 @@
 package com.common.resolver;
 
+import com.common.utils.utils.CacheTools;
 import com.modle.User;
 
 import com.fang.common.project.CommonConstant;
@@ -22,7 +23,9 @@ public class HostUserArgumentResolver implements WebArgumentResolver {
 		if (arg0.getParameterType().equals(User.class)) {
 			Cookie authCookie = CookieUtil.getCookie(request, CommonConstant.AUTH_STR);
 	    	String authId = authCookie.getValue();
-			return null;
+
+			User ue = CacheTools.getCacheForever(authId, User.class);
+			return ue;
 		}
 		return UNRESOLVED;
 	}

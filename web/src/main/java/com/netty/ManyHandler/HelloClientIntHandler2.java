@@ -3,11 +3,13 @@ package com.netty.ManyHandler;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 public class HelloClientIntHandler2 extends ChannelInboundHandlerAdapter {
-    private static Logger   logger  = LoggerFactory.getLogger(HelloClientIntHandler2.class);
+   // private static Logger   logger  = LoggerFactory.getLogger(HelloClientIntHandler2.class);
+    private static Logger logger  = Logger.getLogger(HelloClientIntHandler2.class);
     @Override
     // 读取服务端的信息
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {

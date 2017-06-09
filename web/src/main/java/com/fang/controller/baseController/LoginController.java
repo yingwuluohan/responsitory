@@ -1,8 +1,10 @@
 package com.fang.controller.basecontroller;
 
 
+import com.common.utils.utils.CacheTools;
 import com.fang.common.project.CommonConstant;
 import com.fang.common.project.CookieUtil;
+import com.fang.common.project.KooJedisClient;
 import com.fang.service.CacheToolsService;
 import com.fang.service.DemoService;
 import com.modle.User;
@@ -35,14 +37,23 @@ public class LoginController extends BaseController {
 	private CacheToolsService cacheToolsService;
 	@Autowired
 	private DemoService demoService;
+	//@Autowired
+	private KooJedisClient kooJedisClient;
 
+	public KooJedisClient getKooJedisClient() {
+		return kooJedisClient;
+	}
+
+	public void setKooJedisClient(KooJedisClient kooJedisClient) {
+		this.kooJedisClient = kooJedisClient;
+	}
 
 	@RequestMapping("/loginPage")
 	public String loginPage(HttpServletRequest request){
 		request.setAttribute("ssoUrl", host);
 		String uuid = UUID.randomUUID().toString().replace("-", "");
 		request.setAttribute("uuid", uuid);
-		return "/login/login";
+		return "/login/loginTest";
 	}
 
 	/**
@@ -63,26 +74,17 @@ public class LoginController extends BaseController {
 		return map;
 	}
 	@RequestMapping("/login")
-	@ResponseBody
-	public Map login(HttpServletRequest request,HttpServletResponse response){
-		Map map = new HashMap();
+	public String login(HttpServletRequest request,HttpServletResponse response){
 		String random = getParamter("random");
 		String uuid = request.getParameter("uuid");
 		System.out.println( "uuid:" + uuid );
 		String mobileEmail = getParamter("mobileEmail");
-		//String password = getParamter("password");
 		User ue = demoService.findUser(mobileEmail);
 		if(ue!=null){
-			CookieUtil.setCookie(request, response, host , ue.getId().toString());
-			cacheToolsService.addCacheForever(ue.getId().toString(), ue);
-			if( StringUtils.isEmpty(  ue.getType()+"" ) || null == ue.getType() ){
-				map.put("userType", 0 );
-			}else{
-				map.put("userType", ue.getType() );
-			}
-			map.put("success", true);
+			CookieUtil.setCookie(request, response, CommonConstant.AUTH_STR , ue.getId().toString());
+			kooJedisClient.set(ue.getId().toString(), ue);
 		}
-		return map;
+		return "redirect:/chat/goHttpChat";
 	}
 
     @RequestMapping(value="/addUser" , method = RequestMethod.POST)
