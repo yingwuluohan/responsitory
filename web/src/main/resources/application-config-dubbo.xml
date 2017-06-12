@@ -21,10 +21,10 @@
     <!--聊天2 nio -->
     <dubbo:reference id="chatRoomServerInit"  interface="com.fang.service.chart.ChatRoomServerInitService"  />
     <dubbo:reference id="chatRoomServerClient"  interface="com.fang.service.chart.ChatRoomServerClientService"  />
-    <!-- kafka 服务
+    <!-- kafka 服务-->
     <dubbo:reference id="kafkaConsumerServer"  interface="com.fang.service.kafka.KafkaConsumerServer"  />
     <dubbo:reference id="kafkaProducerServer"  interface="com.fang.service.kafka.KafkaProducerServer"  />
--->
+
 
     <!-- 远程服务调用重试次数，不包括第一次调用 -->
     <dubbo:consumer retries="0" timeout="@dubbo.timeout@" />

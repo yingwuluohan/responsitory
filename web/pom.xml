@@ -345,8 +345,8 @@
                     <connectors>
                         <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
                             <port>8080</port>
-                            <host>my.global.com</host>
-                            <!--  <host>10.155.44.192</host> -->
+                            <!-- <host>my.global.com</host>  -->
+                             <host>10.155.44.192</host>
                         </connector>
                     </connectors>
                     <contextPath>/</contextPath>
