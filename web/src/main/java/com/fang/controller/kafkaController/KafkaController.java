@@ -27,15 +27,11 @@ public class KafkaController {
     @RequestMapping( value="/init" ,method= RequestMethod.GET )
     public void initTest(){
 
-
-        for( int i = 0 ; i < 100 ; i++ ){
             User user = new User();
-            user.setUserId( 23543 + i );
-            user.setUserName( "sdfg4et" +i);
-            user.setEmail( "dsk3w3@123"+i );
-            kafkaProducerServer.sendDefualtMessage( user );
-        }
-
+            user.setUserId( 23543  );
+            user.setUserName( "sdfg4et"  );
+            user.setEmail( "dsk3w3@123"  );
+            kafkaProducerServer.sendDefualtMessage( "111111111111" );
 
 
     }

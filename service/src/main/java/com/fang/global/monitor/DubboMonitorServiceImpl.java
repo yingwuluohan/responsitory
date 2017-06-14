@@ -23,12 +23,6 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public class DubboMonitorServiceImpl  {
 
-    @Autowired
-    private MessageChannel messageChannel;
 
-    public void messageChannel(){
-        messageChannel.send( MessageBuilder.withPayload( "" ).build());
-
-    }
 
 }

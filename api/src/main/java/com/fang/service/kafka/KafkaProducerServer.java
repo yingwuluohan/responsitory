@@ -1,6 +1,5 @@
 package com.fang.service.kafka;
 
-import org.springframework.kafka.support.SendResult;
 import org.springframework.util.concurrent.ListenableFuture;
 
 import java.util.Map;
@@ -10,6 +9,6 @@ import java.util.Map;
  */
 public interface KafkaProducerServer  {
 
-     void sendDefualtMessage(Object object) ;
+     void sendDefualtMessage(String object) ;
 
 }

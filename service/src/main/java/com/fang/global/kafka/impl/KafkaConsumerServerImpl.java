@@ -6,17 +6,17 @@ import com.modle.User;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.kafka.listener.MessageListener;
+//import org.springframework.kafka.listener.MessageListener;
 
 /**
  * Created by fn on 2017/6/8.
  */
-public class KafkaConsumerServerImpl implements KafkaConsumerServer ,MessageListener<Integer,String> {
+public class KafkaConsumerServerImpl {//implements KafkaConsumerServer ,MessageListener<Integer,String> {
 
 
 
 
-    @Override
+   // @Override
     public void onMessage(ConsumerRecord<Integer, String> consumerRecord) {
         try{
             String userJson = consumerRecord.value();

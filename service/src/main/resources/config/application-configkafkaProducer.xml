@@ -10,13 +10,13 @@
     <bean id="producerProperties" class="java.util.HashMap">
         <constructor-arg>
             <map>
-                <entry key="bootstrap.servers" value="192.168.100.139:9092"/>
-                <entry key="batch.size" value="16384"/>
-                <entry key="group.id" value="1"/>
+                <entry key="bootstrap.servers" value="192.168.100.46:9092,192.168.100.139:9092,192.168.100.140:9092"/>
+                <entry key="batch.size" value="106384"/>
+                <entry key="group.id" value="xuetest"/>
                 <entry key="retries" value="10"/>
-                <entry key="batch.size" value="16384"/>
+                <entry key="batch.size" value="163841"/>
                 <entry key="linger.ms" value="1"/>
-                <entry key="buffer.memory" value="33554432"/>
+                <entry key="buffer.memory" value="335544321"/>
                 <entry key="key.serializer" value="org.apache.kafka.common.serialization.IntegerSerializer"/>
                 <entry key="value.serializer" value="org.apache.kafka.common.serialization.StringSerializer"/>
             </map>

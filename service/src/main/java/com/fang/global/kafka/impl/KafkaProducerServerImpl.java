@@ -2,9 +2,10 @@ package com.fang.global.kafka.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.fang.service.kafka.KafkaProducerServer;
-import com.modle.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.integration.channel.DirectChannel;
+import org.springframework.integration.support.MessageBuilder;
+import org.springframework.messaging.MessageChannel;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,19 +14,27 @@ import org.springframework.stereotype.Service;
  * @author wangb
  *
  */
-@Service("kafkaProducerService")
+
 public class KafkaProducerServerImpl implements KafkaProducerServer{
+
     @Autowired
-    private KafkaTemplate< Integer , String > kafkaTemplate;
+    private MessageChannel kafkaProvider;
+
     @Override
-    public void sendDefualtMessage(Object object) {
+    public void sendDefualtMessage(String object) {
         try{
             if( null != object ){
-                String  str = JSONObject.toJSONString(object);
-                kafkaTemplate.sendDefault( str );
+                kafkaProvider.send( MessageBuilder.withPayload( object ).build() );
             }
         }catch( Exception e ){
             e.printStackTrace();
         }
+    }
+    public void setKafkaProvider(MessageChannel kafkaProvider) {
+        this.kafkaProvider = kafkaProvider;
+    }
+
+    public MessageChannel getKafkaProvider() {
+        return kafkaProvider;
     }
 }

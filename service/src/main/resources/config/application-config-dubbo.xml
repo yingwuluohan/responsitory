@@ -29,13 +29,13 @@
     <dubbo:service interface="com.fang.service.chart.ChatRoomServerInitService" ref="chatRoomServerInitService" protocol="dubbo"/>
     <bean id="chatRoomServerClientService" class="com.fang.global.chat.impl.ChatRoomServerClientServiceImpl" />
     <dubbo:service interface="com.fang.service.chart.ChatRoomServerClientService" ref="chatRoomServerClientService" protocol="dubbo"/>
-    <!-- kafka 服务-->
+    <!-- kafka 服务
     <bean id="kafkaConsumerServer" class="com.fang.global.kafka.impl.KafkaConsumerServerImpl" />
-    <dubbo:service interface="com.fang.service.kafka.KafkaConsumerServer"  ref="kafkaConsumerServer" protocol="dubbo"/>
+    <dubbo:service interface="com.fang.service.kafka.KafkaConsumerServer"  ref="monitorListener" protocol="dubbo"/>-->
 
-    <bean id="kafkaProducerServer" class="com.fang.global.kafka.impl.KafkaProducerServerImpl" />
-    <dubbo:service interface="com.fang.service.kafka.KafkaProducerServer"  ref="kafkaProducerServer" protocol="dubbo"/>
-
+   <!-- <bean id="kafkaProducerServer" class="com.fang.global.kafka.impl.KafkaProducerServerImpl" />
+    <dubbo:service interface="com.fang.service.kafka.KafkaProducerServer"  ref="dubboMonitorService" protocol="dubbo"/>
+-->
 
     <!-- dubbo简易监控中心
     <dubbo:monitor protocol="registry"></dubbo:monitor>
