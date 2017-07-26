@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:beans="http://www.springframework.org/schema/beans"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/integration/kafka
+	http://www.springframework.org/schema/integration/kafka/spring-integration-kafka.xsd
+	http://www.springframework.org/schema/integration
+	http://www.springframework.org/schema/integration/spring-integration.xsd
+	http://code.alibabatech.com/schema/dubbo
+	http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
+
+    <!-- 消息队列 -->
+    <bean id="mqProductService" class="com.fang.global.rabbitMQ.impl.MqProductServiceImpl" >
+        <property name="amqpTemplate" ref="amqpTemplateProduct"/>
+
+    </bean>
+
+    <bean id="connectionFactoryMq"  class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
+        <property name="addresses" value="${rabbit.b2btsgtj.addresses}"/>
+        <property name="username" value="${rabbit.b2btsgtj.username}"/>
+        <property name="password" value="${rabbit.b2btsgtj.password}"/>
+        <property name="virtualHost" value="${rabbit.b2btsgtj.vhost}"/>
+
+    </bean>
+    <rabbit:admin connection-factory="connectionFactoryMq"/>
+    <!--定义rabbit template用于数据的接收和发送 -->
+    <rabbit:template id="amqpTemplateProduct" connection-factory="connectionFactoryMq" exchange="exchangefanoutb2bTsgtjTest" />
+    <rabbit:admin connection-factory="connectionFactoryMq" />
+    <!--定义queue -->
+
+    <rabbit:fanout-exchange name="exchangefanoutb2bTsgtjTest"  >
+        <rabbit:bindings>
+            <rabbit:binding queue="b2b-tsgtjTest" ></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:fanout-exchange>
+    <!-- 消费 -->
+    <!-- spring template声明-->
+    <rabbit:template exchange="amqpExchange" id="amqpTemplate"  connection-factory="connectionFactoryMq"    />
+    <rabbit:queue id="b2b-tsgtjTest" name="b2b-tsgtjTest" durable="true" auto-delete="false" exclusive="false" />
+    <rabbit:direct-exchange name="amqpExchange" durable="true" auto-delete="false" id="test-mq-exchange">
+        <rabbit:bindings>
+            <rabbit:binding queue="b2b-tsgtjTest" key="test_queue_key"/>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+    <bean id="queueListenter" class="com.fang.global.rabbitMQ.impl.MqConsumerServiceImpl">
+
+    </bean>
+    <rabbit:listener-container connection-factory="connectionFactoryMq" acknowledge="none" task-executor="taskExecutor">
+        <rabbit:listener queues="b2b-tsgtjTest" ref="queueListenter"/>
+    </rabbit:listener-container>
+    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="8"/>
+        <property name="maxPoolSize" value="8"/>
+        <property name="queueCapacity" value="8"/>
+        <property name="keepAliveSeconds" value ="300"/>
+        <property name="rejectedExecutionHandler">
+            <bean class="java.util.concurrent.ThreadPoolExecutor$AbortPolicy"/>
+        </property>
+    </bean>
+</beans>
+
+
+
+
+
+
+

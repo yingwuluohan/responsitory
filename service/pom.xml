@@ -120,6 +120,23 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- rabbitMQ -->
+        <dependency>
+            <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-amqp</artifactId>
+            <version>1.2.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-rabbit</artifactId>
+            <version>1.2.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+            <version>3.2.4</version>
+        </dependency>
+        <!-- rabbitMQ 结束-->
         <!--
         <dependency>
             <groupId>org.springframework.kafka</groupId>
@@ -132,14 +149,7 @@
             <version>0.8.1.1</version>
         </dependency>
 -->
-
-
-
-
-
         <!--kafka 配置结束-->
-
-
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
