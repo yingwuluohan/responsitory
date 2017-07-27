@@ -124,5 +124,9 @@ public class TestController {
         return "/test";
     }
 
+    public static void main(String[] args) {
+        int num = Runtime.getRuntime().availableProcessors();
+        System.out.println( num );
+    }
 
 }

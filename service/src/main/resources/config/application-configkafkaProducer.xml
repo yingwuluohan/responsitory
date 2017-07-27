@@ -14,6 +14,7 @@
                 <entry key="batch.size" value="106384"/>
                 <entry key="group.id" value="xuetest"/>
                 <entry key="retries" value="10"/>
+
                 <entry key="batch.size" value="163841"/>
                 <entry key="linger.ms" value="1"/>
                 <entry key="buffer.memory" value="335544321"/>

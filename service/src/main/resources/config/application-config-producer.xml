@@ -39,8 +39,9 @@
         <int-kafka:producer-configurations>
             <int-kafka:producer-configuration key-class-type="java.lang.String" value-class-type="java.lang.String"
                                               broker-list="${kafka.broker.list}"
+
                                               topic="xueci" value-encoder="kafkaEncoder" key-encoder="kafkaEncoder" />
-                                         <!-- topic="${kafka.monitor.topic}" value-encoder="kafkaEncoder" key-encoder="kafkaEncoder" /> -->
+            <!-- topic="${kafka.monitor.topic}" value-encoder="kafkaEncoder" key-encoder="kafkaEncoder" /> -->
         </int-kafka:producer-configurations>
     </int-kafka:producer-context>
 </beans>
