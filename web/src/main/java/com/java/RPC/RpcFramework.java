@@ -10,14 +10,11 @@ import java.net.Socket;
   
 /** 
  * RpcFramework 
- *  
- * @author william.liangf 
- */  
+ */
 public class RpcFramework {  
   
     /** 
-
-     * @throws Exception 
+     * @throws Exception
      */  
     public static void export(final Object service, int port) throws Exception {  
         if (service == null)  
@@ -26,7 +23,7 @@ public class RpcFramework {
             throw new IllegalArgumentException("Invalid port " + port);  
         System.out.println("Export service " + service.getClass().getName() + " on port " + port);  
         ServerSocket server = new ServerSocket(port);  
-        for(;;) {  
+        for(;;) {
             try {  
                 final Socket socket = server.accept();  
                 new Thread(new Runnable() {  

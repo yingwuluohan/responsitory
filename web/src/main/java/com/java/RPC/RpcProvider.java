@@ -4,8 +4,6 @@ package com.java.RPC;
 
 /**
  * RpcProvider
- *
- * @author william.liangf
  */
 public class RpcProvider {
 
