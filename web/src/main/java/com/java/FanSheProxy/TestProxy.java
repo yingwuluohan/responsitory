@@ -22,14 +22,14 @@ public class TestProxy {
 	
 	   private static String transferLongToDate(String dateFormat,Long millSec){
 
-		     SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
+		 SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
 
-		     Date date= new Date(millSec);
-		     System.out.println( sdf.format(date));
-		            return sdf.format(date);
+		 Date date= new Date(millSec);
+		 System.out.println( sdf.format(date));
+				return sdf.format(date);
 
-		    }
-	   
+	   }
+
 	   public static void getTimer(){
 		   long lTime = 0L;
 		   String sDt = "01/11/2016 16:20:00";

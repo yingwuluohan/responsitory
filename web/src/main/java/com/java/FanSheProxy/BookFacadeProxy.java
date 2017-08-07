@@ -16,7 +16,7 @@ public class BookFacadeProxy implements InvocationHandler {
     /** 
      * 绑定委托对象并返回一个代理类 
      * @param target 
-     * @return 
+     * @return R
      */  
     public Object bind(Object target) {  
         this.target = target;  
