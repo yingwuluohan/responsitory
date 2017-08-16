@@ -354,7 +354,7 @@
                             <port>8080</port>
                             <host>my.global.com</host>
                             <!-- <host>my.global.com</host>  -->
-                             <host>10.155.38.239</host>
+                             <host>10.155.236.249</host>
                         </connector>
                     </connectors>
                     <contextPath>/</contextPath>
