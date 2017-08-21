@@ -40,7 +40,7 @@ public class DemoServiceImpl implements DemoService {
         List< String > list =  demoDao.findUserNameList(  );
         cacheToolsService.addCacheForever( "redisTest:list" , list );
         System.out.println( list );
-        return null;
+        return list.get( 0 );
     }
     public List< User > findUserInfo( Page page){
         if( null != page){

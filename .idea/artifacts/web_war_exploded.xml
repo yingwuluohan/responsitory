@@ -85,6 +85,7 @@
           <element id="library" level="project" name="Maven: io.netty:netty-all:4.0.24.Final" />
           <element id="library" level="project" name="Maven: com.google.code.gson:gson:1.6" />
           <element id="library" level="project" name="Maven: com.caucho:hessian:4.0.7" />
+          <element id="library" level="project" name="Maven: cglib:cglib:2.2.2" />
           <element id="library" level="project" name="Maven: org.apache.pdfbox:pdfbox-app:1.8.11" />
           <element id="library" level="project" name="Maven: com.belerweb:pinyin4j:2.5.0" />
           <element id="library" level="project" name="Maven: commons-pool:commons-pool:1.6" />
@@ -97,6 +98,7 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.0.pr2" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.0.pr1" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0.pr1" />
+          <element id="library" level="project" name="Maven: asm:asm:3.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

@@ -310,6 +310,13 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.9.0.pr1</version>
         </dependency>
+
+        <dependency>
+            <groupId>asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>3.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -354,7 +361,6 @@
                             <port>8080</port>
                             <host>my.global.com</host>
                             <!-- <host>my.global.com</host>  -->
-                             <host>10.155.236.249</host>
                         </connector>
                     </connectors>
                     <contextPath>/</contextPath>

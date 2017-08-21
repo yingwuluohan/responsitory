@@ -5,8 +5,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /** 
-* @author  dfn  : 
-* @date 创建时间：2015年12月31日 下午6:10:24 
+* @date 创建时间：2015年12月31日 下午6:10:24
 * @version 1.0 
 * @parameter   
 * @return  
