@@ -26,6 +26,15 @@ public class EchoServerHandler  extends ChannelInboundHandlerAdapter {
 
     }
 
+    /**
+     * 客户端链接到服务器后被调用
+     * @param ctx
+     */
+    @Override
+    public void channelActive( ChannelHandlerContext ctx){
+        System.out.println( "客户端链接到服务器后被调用" );
+    }
+
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
        // ctx.writeAndFlush(Unpooled.EMPTY_BUFFER).addListener(ChannelFutureListener.CLOSE);//将未决消息冲刷到远程节点，并且关闭该Channel

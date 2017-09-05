@@ -35,11 +35,12 @@ public class TestController {
 
     @RequestMapping( value="/go" ,method= RequestMethod.GET )
     public String goTest(HttpServletRequest request , HttpServletResponse response){
-        for( int i = 0 ;i < 10000;i++ ){
+
+            User user = demoService.findUser( "1325654556" );
 
             String result = demoService.findUserName();
             System.out.println( result );
-        }
+
         return "test";
     }
 

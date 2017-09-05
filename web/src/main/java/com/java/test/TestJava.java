@@ -1,5 +1,10 @@
 package com.java.test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
 /**
  * Created by fn on 2017/5/22.
  */
@@ -17,6 +22,21 @@ public class TestJava {
         System.out.println( "位移：" + ( 1>> 2 ));
         System.out.println( "条件或 ：" + ( 1| 2 ));
         System.out.println( "条件或 ：" + ( 1| 1 ));
+
+        String str = new String( "dfr可以,dj38" );
+        char[] array = str.toCharArray();
+        for ( char b : array ){
+            System.out.println( b );
+        }
+        Integer[] a = new Integer[] { 6, 3, 9, 3, 2, 4, 5, 7 };
+        Integer[] b = new Integer[] { 5, 8, 6, 2, 1, 9 };
+        List _a = Arrays.asList(a);
+        List _b = Arrays.asList(b);
+        Collection realA = new ArrayList<Integer>(_a);
+        Collection realB = new ArrayList<Integer>(_b);
+        // 求交集
+        realA.retainAll(realB);
+        System.out.println( realA );
 
     }
 

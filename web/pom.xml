@@ -310,6 +310,11 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.9.0.pr1</version>
         </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.0.32.Final</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -353,8 +358,7 @@
                         <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
                             <port>8080</port>
                             <host>my.global.com</host>
-                            <!-- <host>my.global.com</host>  -->
-                             <host>10.155.236.249</host>
+                            <!-- <host>10.155.236.249</host>-->
                         </connector>
                     </connectors>
                     <contextPath>/</contextPath>
