@@ -40,6 +40,7 @@
     <!-- 消费 -->
     <!-- spring template声明-->
     <rabbit:template exchange="amqpExchange" id="amqpTemplate"  connection-factory="connectionFactoryMq"    />
+    <!--如过将queue的持久化标识durable设置为true,则代表是一个持久的队列，那么在服务重启之后，也会存在-->
     <rabbit:queue id="b2b-tsgtjTest" name="b2b-tsgtjTest" durable="true" auto-delete="false" exclusive="false" />
     <rabbit:direct-exchange name="amqpExchange" durable="true" auto-delete="false" id="test-mq-exchange">
         <rabbit:bindings>
@@ -54,8 +55,8 @@
     </rabbit:listener-container>
     <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
         <property name="corePoolSize" value="8"/>
-        <property name="maxPoolSize" value="8"/>
-        <property name="queueCapacity" value="8"/>
+        <property name="maxPoolSize" value="18"/>
+        <property name="queueCapacity" value="20"/>
         <property name="keepAliveSeconds" value ="300"/>
         <property name="rejectedExecutionHandler">
             <bean class="java.util.concurrent.ThreadPoolExecutor$AbortPolicy"/>
