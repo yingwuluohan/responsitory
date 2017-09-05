@@ -9,6 +9,7 @@ import java.util.List;
  * Created by fn on 2017/5/22.
  */
 public class TestJava {
+<<<<<<< HEAD
     /**
      * 或运算，
      * 5转换为二进制：0000 0000 0000 0000 0000 0000 0000 0101
@@ -39,6 +40,8 @@ public class TestJava {
         System.out.println( realA );
 
     }
+=======
+>>>>>>> bd9f33305c8cf1f1afdc5d63a30f9a863ad048ad
 
 
 }

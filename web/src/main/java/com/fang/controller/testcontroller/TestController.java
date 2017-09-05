@@ -132,6 +132,16 @@ public class TestController {
     public static void main(String[] args) {
         int num = Runtime.getRuntime().availableProcessors();
         System.out.println( num );
+
+        String str = "多看看代收款";
+        String[] array = str.split("");
+        for( String s : array )
+        System.out.println( "resuot:" + s );
+
+        byte d3 = 127; // 如果是byte d3 = 128;会报错
+        byte d4 = -1;
+        char c = (char) 16; // char不能识别负数，必须强制转换否则报错，即使强制转换之后，也无法识别
+        System.out.println(c);
     }
 
 }

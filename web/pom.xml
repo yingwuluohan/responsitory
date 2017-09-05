@@ -310,11 +310,21 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.9.0.pr1</version>
         </dependency>
+<<<<<<< HEAD
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>4.0.32.Final</version>
         </dependency>
+=======
+
+        <dependency>
+            <groupId>asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>3.0</version>
+        </dependency>
+
+>>>>>>> bd9f33305c8cf1f1afdc5d63a30f9a863ad048ad
     </dependencies>
 
     <build>
@@ -358,7 +368,11 @@
                         <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
                             <port>8080</port>
                             <host>my.global.com</host>
+<<<<<<< HEAD
                             <!-- <host>10.155.236.249</host>-->
+=======
+                            <!-- <host>my.global.com</host>  -->
+>>>>>>> bd9f33305c8cf1f1afdc5d63a30f9a863ad048ad
                         </connector>
                     </connectors>
                     <contextPath>/</contextPath>
@@ -367,6 +381,17 @@
                     <webDefaultXml>src/main/resources/webdefault.xml</webDefaultXml>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                    </archive>
+                </configuration>
+            </plugin>
+
+
         </plugins>
     </build>
 </project>
