@@ -310,21 +310,38 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.9.0.pr1</version>
         </dependency>
-<<<<<<< HEAD
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>4.0.32.Final</version>
         </dependency>
-=======
 
         <dependency>
             <groupId>asm</groupId>
             <artifactId>asm</artifactId>
             <version>3.0</version>
         </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>1.8.7.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>1.8.7.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>father</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
 
->>>>>>> bd9f33305c8cf1f1afdc5d63a30f9a863ad048ad
     </dependencies>
 
     <build>
@@ -368,11 +385,6 @@
                         <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
                             <port>8080</port>
                             <host>my.global.com</host>
-<<<<<<< HEAD
-                            <!-- <host>10.155.236.249</host>-->
-=======
-                            <!-- <host>my.global.com</host>  -->
->>>>>>> bd9f33305c8cf1f1afdc5d63a30f9a863ad048ad
                         </connector>
                     </connectors>
                     <contextPath>/</contextPath>

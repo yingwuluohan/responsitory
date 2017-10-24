@@ -13,13 +13,13 @@ public class Lambda  {
         String[] atp = { "3sdf" , "45sdf","sdf","12"};
         List<String> players =  Arrays.asList(atp);
         // 以前的循环方式
-//		for (String player : players) {
-//		     System.out.print(player + "; ");
-//		}
-        // 使用 lambda 表达式以及函数操作(functional operation)
-      //  players.forEach((player1) -> System.out.print(player1 + "; "));
-     //   players.stream().map( s -> s.substring( 1 ) );
-//		players.stream().filter("");
+		for (String player : players) {
+		     System.out.print(player + "; ");
+		}
+         //使用 lambda 表达式以及函数操作(functional operation)
+        players.forEach((player1) -> System.out.print(player1 + "; "));
+        players.stream().map( s -> s.substring( 1 ) );
+		players.stream().filter("");
         String[] array = ( String[] )players.toArray();
     }
     public static Map< String , String > get(String str ){

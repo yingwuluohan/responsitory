@@ -1,7 +1,6 @@
 package com.fang.controller.basecontroller;
 
 
-import com.common.utils.utils.CacheTools;
 import com.fang.common.project.CommonConstant;
 import com.fang.common.project.CookieUtil;
 import com.fang.common.project.KooJedisClient;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.imageio.ImageIO;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,10 +25,13 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import java.util.UUID;
 
 @Controller
-public class LoginController extends BaseController {
+public class LoginController extends com.fang.controller.basecontroller.BaseController {
 	private static Log logger = LogFactory.getLog(LoginController.class);
 	private String host = "global";
 	@Autowired
