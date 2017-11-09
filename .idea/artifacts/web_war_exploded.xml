@@ -98,11 +98,7 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.0.pr2" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.0.pr1" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0.pr1" />
-<<<<<<< HEAD
-          <element id="library" level="project" name="Maven: io.netty:netty-all:4.0.32.Final" />
-=======
           <element id="library" level="project" name="Maven: asm:asm:3.0" />
->>>>>>> bd9f33305c8cf1f1afdc5d63a30f9a863ad048ad
         </element>
       </element>
       <element id="directory" name="META-INF">

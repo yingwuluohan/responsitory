@@ -1,6 +1,8 @@
 package com.netty.test;
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -8,6 +10,7 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.util.concurrent.DefaultThreadFactory;
 
 import java.net.InetSocketAddress;
 
@@ -21,7 +24,26 @@ public class EchoServer {
         this.port = port;
     }
 
+    /**
+     * 零拷贝
+     */
+    public void zeroCopy(){
+        byte[] bytes = new String("test").getBytes();
+        ByteBuf byteBuf = Unpooled.wrappedBuffer(bytes);
+    }
+
+    /**
+     * 应用服务的QPS只是几百万,那么parentGroup只需要设置为2,childGroup设置为4
+     *线程数一般都不是写死的,一种是设置到环境变量里,而更好的方式是在Java进程启动的时候,
+     * 指定参数,将线程数设置进去。
+     *
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
+        EventLoopGroup  parentGroup = new NioEventLoopGroup(2, new DefaultThreadFactory("server1", true));
+        EventLoopGroup  childGroup = new NioEventLoopGroup(4, new DefaultThreadFactory("server2", true));
+
         if (args.length != 1) {
             System.err.println( "Usage: " + EchoServer.class.getSimpleName() + " ");
         }

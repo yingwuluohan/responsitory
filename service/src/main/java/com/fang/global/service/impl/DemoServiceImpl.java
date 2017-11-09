@@ -11,9 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by  on 2017/2/9.
@@ -69,8 +67,22 @@ public class DemoServiceImpl implements DemoService {
      * @return
      */
     public User findUser( String emailAndMobile ){
+        List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
+
+        Collections.sort(names, new Comparator<String>() {
+            @Override
+            public int compare(String a, String b) {
+                return b.compareTo(a);
+            }
+        });
+
         User user = demoDao.findUserByMobile( emailAndMobile );
-        return user;
+        ChildUser child = new ChildUser();
+        child.setChildName( "dubbo hession");
+        child.setTokenId( 124453 );
+        child.setMobile( user.getMobile() );
+        child.setUserName( user.getUserName() );
+        return child;
     }
 
 
