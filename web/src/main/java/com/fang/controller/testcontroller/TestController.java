@@ -1,11 +1,10 @@
 package com.fang.controller.testcontroller;
 
 
-import com.common.utils.redis.RadisCacheUtil;
 import com.fang.service.CacheToolsService;
-import com.modle.User;
 import com.fang.service.DemoService;
 import com.fang.service.TestRedisOperaterService;
+import com.modle.User;
 import com.modle.UserInfo;
 import com.modle.page.Page;
 import org.apache.commons.lang3.StringUtils;
@@ -68,6 +67,7 @@ public class TestController {
                         HttpServletResponse response ) throws Exception
     {
         //先判断examId 是否存在
+
         System.out.println( "获取参数:" + examId + ", " + studentId );
         return "/index";
     }
