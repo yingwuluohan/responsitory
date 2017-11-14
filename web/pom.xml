@@ -310,11 +310,14 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.9.0.pr1</version>
         </dependency>
+<<<<<<< HEAD
+=======
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>4.0.32.Final</version>
         </dependency>
+>>>>>>> 19832ca7e1fbd5db1a554b93bb29b9dba935b15c
 
         <dependency>
             <groupId>asm</groupId>
@@ -385,6 +388,10 @@
                         <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
                             <port>8080</port>
                             <host>my.global.com</host>
+<<<<<<< HEAD
+                            <!-- <host>10.155.236.249</host>-->
+=======
+>>>>>>> 19832ca7e1fbd5db1a554b93bb29b9dba935b15c
                         </connector>
                     </connectors>
                     <contextPath>/</contextPath>

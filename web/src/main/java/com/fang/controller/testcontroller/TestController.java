@@ -35,10 +35,10 @@ public class TestController {
     @RequestMapping( value="/go" ,method= RequestMethod.GET )
     public String goTest(HttpServletRequest request , HttpServletResponse response){
 
-            User user = demoService.findUser( "1325654556" );
+            User user = demoService.findUser( "13717567805" );
+            System.out.println( user.getCityName() );
 
             String result = demoService.findUserName();
-            System.out.println( result );
 
         return "test";
     }
