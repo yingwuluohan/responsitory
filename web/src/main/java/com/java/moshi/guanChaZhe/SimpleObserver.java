@@ -1,4 +1,4 @@
-package com.java.moshi;
+package com.java.moshi.guanChaZhe;
 
 import java.util.Observable;
 import java.util.Observer;
