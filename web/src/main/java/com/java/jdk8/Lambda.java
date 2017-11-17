@@ -10,6 +10,7 @@ public class Lambda  {
     public static void test(String str ){
         // 1. 不需要参数,返回值为 5
 //		() -> 5;
+        /*
         String[] atp = { "3sdf" , "45sdf","sdf","12"};
         List<String> players =  Arrays.asList(atp);
         // 以前的循环方式
@@ -21,6 +22,7 @@ public class Lambda  {
         players.stream().map( s -> s.substring( 1 ) );
 		players.stream().filter("");
         String[] array = ( String[] )players.toArray();
+        */
     }
     public static Map< String , String > get(String str ){
         System.out.println( "Lambda"  + str );
