@@ -8,7 +8,7 @@ import com.lmax.disruptor.WorkHandler;
 import java.util.UUID;
 
 /**
- * @company: 北京云知声信息技术有限公司
+ * @company: 东方
  * @author: FANGNAN
  * @date: 2018/1/30
  **/

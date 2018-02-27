@@ -5,7 +5,7 @@ package com.disruptor;/**
 import com.lmax.disruptor.EventHandler;
 
 /**
- * @company: 北京云知声信息技术有限公司
+ * @company: 东方
  * @author: FANGNAN
  * @date: 2018/1/30
  **/

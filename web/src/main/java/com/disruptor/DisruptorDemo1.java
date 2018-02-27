@@ -7,7 +7,7 @@ import com.lmax.disruptor.*;
 import java.util.concurrent.*;
 
 /**
- * @company: 北京云知声信息技术有限公司
+ * @company:
  * @author: FANGNAN
  * @date: 2018/1/30
  **/

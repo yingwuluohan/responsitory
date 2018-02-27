@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * @company: 北京云知声信息技术有限公司
+ * @company: 东方
  * @author: FANGNAN
  * @date: 2018/1/30
  **/
