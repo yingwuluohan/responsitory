@@ -21,8 +21,8 @@ public class DisruptorDemo {
     public static void main(String[] args) throws InterruptedException {
         long beginTime=System.currentTimeMillis();
 
-        int bufferSize=1024;
-        ExecutorService executor= Executors.newFixedThreadPool(4);
+        int bufferSize=2048;
+        ExecutorService executor= Executors.newFixedThreadPool(6);
         //这个构造函数参数，相信你在了解上面2个demo之后就看下就明白了，不解释了~
         Disruptor<TradeTransaction> disruptor=new Disruptor<TradeTransaction>(
                 new EventFactory<TradeTransaction>() {//事件工厂

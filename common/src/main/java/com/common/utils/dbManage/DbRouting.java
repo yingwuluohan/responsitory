@@ -1,8 +1,8 @@
 package com.common.utils.dbManage;
 
 import com.common.utils.hash.ConsistentHash;
-import org.logicalcobwebs.proxool.ProxoolException;
-import org.logicalcobwebs.proxool.ProxoolFacade;
+//import org.logicalcobwebs.proxool.ProxoolException;
+//import org.logicalcobwebs.proxool.ProxoolFacade;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -85,7 +85,7 @@ public class DbRouting {
     /**
      * 初始化一个阻塞的优先队列，这个队列主要是为了读库的最小连接数而设计的
      */
-    private final PriorityBlockingQueue<PrioryDS> dsPrioryQueue = new PriorityBlockingQueue<PrioryDS>();
+//    private final PriorityBlockingQueue<PrioryDS> dsPrioryQueue = new PriorityBlockingQueue<PrioryDS>();
 
     public DbRouting(String clusterId) {
         this.clusterId = clusterId;
@@ -94,41 +94,41 @@ public class DbRouting {
     /**
      * 阻塞的优先队列的实例，实现比较接口，比较队列中数据的大小
      */
-    class PrioryDS implements Comparable<PrioryDS> {
-        String nodeName;
-
-        public PrioryDS(String nodeId) {
-            this.nodeName = nodeId;
-        }
-
-        public String getName() {
-            return nodeName;
-        }
-
-        public int compareTo(PrioryDS arg0) {
-            try {
-                return ProxoolFacade.getSnapshot(nodeName)
-                        .getAvailableConnectionCount() > ProxoolFacade
-                        .getSnapshot(arg0.getName())
-                        .getAvailableConnectionCount() ? 0 : 1;
-            } catch (ProxoolException e) {
-                e.printStackTrace();
-            }
-            return 0;
-        }
-
-        public String toString() {
-            try {
-                return nodeName
-                        + "."
-                        + ProxoolFacade.getSnapshot(nodeName)
-                        .getAvailableConnectionCount();
-            } catch (ProxoolException e) {
-                e.printStackTrace();
-            }
-            return nodeName + ".0";
-        }
-    }
+//    class PrioryDS implements Comparable<PrioryDS> {
+//        String nodeName;
+//
+//        public PrioryDS(String nodeId) {
+//            this.nodeName = nodeId;
+//        }
+//
+//        public String getName() {
+//            return nodeName;
+//        }
+//
+////        public int compareTo(PrioryDS arg0) {
+////            try {
+////                return ProxoolFacade.getSnapshot(nodeName)
+////                        .getAvailableConnectionCount() > ProxoolFacade
+////                        .getSnapshot(arg0.getName())
+////                        .getAvailableConnectionCount() ? 0 : 1;
+////            } catch (ProxoolException e) {
+////                e.printStackTrace();
+////            }
+////            return 0;
+////        }
+////
+////        public String toString() {
+////            try {
+////                return nodeName
+////                        + "."
+////                        + ProxoolFacade.getSnapshot(nodeName)
+////                        .getAvailableConnectionCount();
+////            } catch (ProxoolException e) {
+////                e.printStackTrace();
+////            }
+////            return nodeName + ".0";
+////        }
+//    }
 //************************************
     /**
      * 获取读写数据库集群，默认只取第一个节点的连接，除非多个连接是共享存储的，否则只需要设置一个即可。
