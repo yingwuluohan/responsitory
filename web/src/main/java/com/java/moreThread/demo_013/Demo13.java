@@ -29,16 +29,23 @@ public class Demo13 {
 			threads.add(new Thread(demo13::test, "thread-" + i));
 		}
 		
-		threads.forEach((o)->o.start()); //JDK1.8新特性
+		threads.forEach(( o )-> o.start()); //JDK1.8新特性
 		
-		threads.forEach((o)->{ //JDK1.8新特性
+		threads.forEach(( o )-> { //JDK1.8新特性
 			try {
+				System.out.println( "当前：" + System.currentTimeMillis() );
 				o.join(); //等线程执行完毕之后才执行主线程main
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		});
 		
-		System.out.println(demo13.count);
+		System.out.println("count：" + demo13.count);
+		List<String > strList = new ArrayList<>();
+		strList.add( "1");
+		strList.add( "2");
+		strList.forEach( (str) -> {
+			System.out.println( str );
+		});
 	}
 }
